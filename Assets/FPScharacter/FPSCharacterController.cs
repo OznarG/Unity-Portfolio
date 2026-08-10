@@ -13,7 +13,6 @@ public class FPSCharacterController : MonoBehaviour
     {
         fpsStats = GetComponent<FPSCharacterStats>();
         rb = GetComponent<Rigidbody>();
-        playerInput = new PlayerInput();
     }
 
     // Update is called once per frame
@@ -22,6 +21,10 @@ public class FPSCharacterController : MonoBehaviour
         CheckGround();
     }
 
+    private void FixedUpdate()
+    {
+        Moveplayer();
+    }
     void OnJump()
     {
         if(isGrounded)
@@ -34,5 +37,23 @@ public class FPSCharacterController : MonoBehaviour
     void CheckGround()
     {
         isGrounded = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask);
+    }
+
+    void OnMovement(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
+
+    void Moveplayer()
+    {
+        Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.y ;
+        direction.Normalize();
+
+        rb.linearVelocity = new Vector3(direction.x * fpsStats.speed, rb.linearVelocity.y, direction.z * fpsStats.speed);
+    }
+
+    void Loop()
+    {
+
     }
 }
