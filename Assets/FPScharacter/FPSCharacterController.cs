@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class FPSCharacterController : MonoBehaviour
 {
-    [SerializeField] FPSCharacterStats fpsStats;
+    FPSCharacterStats fpsStats;
     private Rigidbody rb;
     private Vector2 moveInput;
     private bool isGrounded;
