@@ -21,12 +21,12 @@ public class FPSCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Moveplayer();
     }
 
     private void FixedUpdate()
     {
-        Moveplayer();
+ 
     }
     void OnJump()
     {
@@ -53,9 +53,21 @@ public class FPSCharacterController : MonoBehaviour
     {
         moveInput = value.Get<Vector2>();
     }
+    void OnSprint()
+    {
+        if(!fpsStats.is_Jumping)
+        {
+            fpsStats.is_Running = !fpsStats.is_Running;
+        }
+
+    }
 
     void Moveplayer()
     {
+        float targetSpeed = fpsStats.is_Running ? fpsStats.runningSpeed : fpsStats.walkSpeed;
+
+        fpsStats.currentSpeed = Mathf.Lerp(fpsStats.currentSpeed, targetSpeed, Time.deltaTime * 10);
+
         Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.y ;
         direction.Normalize();
 

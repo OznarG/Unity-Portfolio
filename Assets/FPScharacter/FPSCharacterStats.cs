@@ -9,6 +9,7 @@ public class FPSCharacterStats : MonoBehaviour
     public float jumpForce;
     public float gravity;
     public bool is_Jumping;
+    public bool is_Running;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
