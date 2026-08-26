@@ -3,19 +3,20 @@ using UnityEngine.InputSystem;
 
 public class FPSPlayerCamera : MonoBehaviour
 {
-    public float mouseSensitivity;
+    //Components and references
     public Transform camTransform;
 
+    //variables to adjust camera movement
+    public float mouseSensitivity;
     private float xRotation = 0f;
-    private Vector2 lookInput;
-
     [SerializeField] float maxUplook;
     [SerializeField] float maxDownlook;
-
+    private Vector2 lookInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Locks curson on Place and Turn off visibility
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -28,19 +29,22 @@ public class FPSPlayerCamera : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
+        //Every Time the mouse moves this is called
         lookInput = value.Get<Vector2>();
     }
 
     void MouseLook()
     {
+        //Stores values for mouse moving Horizontally and Vertically
         float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
 
+        //Rotates camera up or down
         xRotation -= mouseY;
+        //Clamps movement so it has a limit up and down
         xRotation = Mathf.Clamp(xRotation, -maxDownlook, maxUplook);
-
+        //Apply rotation
         camTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
         transform.Rotate(Vector3.up * mouseX);
     }
     public void ShakeCamera()
