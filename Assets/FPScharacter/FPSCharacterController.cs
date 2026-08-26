@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class FPSCharacterController : MonoBehaviour
 {
     //Components and References
+    public Animator Animator;
     FPSCharacterStats fpsStats;
     private PlayerInput playerInput;
     private CharacterController characterController;
@@ -63,6 +64,16 @@ public class FPSCharacterController : MonoBehaviour
             //Add force upward to make character jump
             velocity.y = Mathf.Sqrt(fpsStats.jumpForce * -2 * fpsStats.gravity);
         }
+    }
+
+    public void PlayerShot()
+    {
+        Animator.SetTrigger("Fire");
+    }
+    public void ShootWeapon()
+    {
+        Debug.Log("Weapon Anim called");
+        GameManager.instance.weaponController.weapon.Shot();
     }
 
     #region --- Input/Functions ---
