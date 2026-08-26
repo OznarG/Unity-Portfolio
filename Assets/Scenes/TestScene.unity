@@ -225,9 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d3d3a8902d1e145bb72bc5e56faa00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 5
+  currentSpeed: 5
+  walkSpeed: 5
+  runningSpeed: 10
+  jumpForce: 15
   gravity: -9.81
+  is_Jumping: 0
   groundCheck: {fileID: 1952724459}
   groundDistance: 0.4
   groundMask:
