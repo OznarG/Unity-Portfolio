@@ -21,7 +21,7 @@ public class FPSPlayerCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         MouseLook();
     }
@@ -42,5 +42,9 @@ public class FPSPlayerCamera : MonoBehaviour
         camTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         transform.Rotate(Vector3.up * mouseX);
+    }
+    public void ShakeCamera()
+    {
+
     }
 }

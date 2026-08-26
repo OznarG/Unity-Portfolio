@@ -6,19 +6,22 @@ public class FPSCharacterController : MonoBehaviour
     FPSCharacterStats fpsStats;
     private Rigidbody rb;
     private Vector2 moveInput;
+    private Vector3 velocity;
     private bool isGrounded;
     private PlayerInput playerInput;
+    private CharacterController characterController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         fpsStats = GetComponent<FPSCharacterStats>();
         rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckGround();
+        
     }
 
     private void FixedUpdate()
@@ -27,16 +30,13 @@ public class FPSCharacterController : MonoBehaviour
     }
     void OnJump()
     {
-        if(isGrounded)
-        {
-            rb.AddForce(new Vector3(0, fpsStats.jumpForce, 0), ForceMode.Impulse);
-        }
+
 
     }
 
-    void CheckGround()
+    bool CheckGround()
     {
-        isGrounded = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask);
+        return Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask);
     }
 
     void OnMovement(InputValue value)
@@ -49,7 +49,16 @@ public class FPSCharacterController : MonoBehaviour
         Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.y ;
         direction.Normalize();
 
-        rb.linearVelocity = new Vector3(direction.x * fpsStats.speed, rb.linearVelocity.y, direction.z * fpsStats.speed);
+        characterController.Move(direction * fpsStats.walkSpeed * Time.deltaTime);
+
+        if (CheckGround() && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        velocity.y += fpsStats.gravity * Time.deltaTime;
+
+        characterController.Move(velocity * Time.deltaTime);
     }
 
     void Loop()

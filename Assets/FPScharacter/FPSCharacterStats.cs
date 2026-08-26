@@ -3,8 +3,10 @@ using UnityEngine.InputSystem;
 
 public class FPSCharacterStats : MonoBehaviour
 {
-    public float speed;
+    public float walkSpeed;
+    public float runningSpeed;
     public float jumpForce;
+    public float gravity;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
