@@ -34,7 +34,6 @@ public class FPSCharacterController : MonoBehaviour
         //Create a sphere on the given location of the given size and check if is hitting the ground layer or not
         //choose based on what is given then return 
         fpsStats.is_Jumping = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask) ? false : true;
-        Debug.Log(fpsStats.is_Jumping);
         return isGrounded = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask);
     }
     void Moveplayer()
@@ -62,7 +61,6 @@ public class FPSCharacterController : MonoBehaviour
         //If is not grounded and no jumping
         if (IsGrounded() && !fpsStats.is_Jumping)
         {
-            Debug.Log("Jump Called");
             //Add force upward to make character jump
             velocity.y = Mathf.Sqrt(fpsStats.jumpForce * -2 * fpsStats.gravity);
         }
@@ -74,7 +72,6 @@ public class FPSCharacterController : MonoBehaviour
     }
     public void ShootWeapon()
     {
-        Debug.Log("Weapon Anim called");
         GameManager.instance.weaponController.selectedWeapon.Shot();
     }
 

@@ -57,7 +57,6 @@ public class WeaponController : MonoBehaviour
 
             if (controlName == "1")
             {
-                Debug.Log("Weapon 1 selected");
                 if(!isShooting)
                 {
                     selectedWeapon.gameObject.SetActive(false);
@@ -67,7 +66,6 @@ public class WeaponController : MonoBehaviour
             }
             else if (controlName == "2")
             {
-                Debug.Log("Weapon 2 selected");
                 if (!isShooting)
                 {
                     selectedWeapon.gameObject.SetActive(false);
