@@ -1,4 +1,7 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class WeaponController : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class WeaponController : MonoBehaviour
     private Camera cam;
 
     private bool canShoot;
+    public bool isShooting;
     public float nextFireTime;
 
     private Ray ray;
@@ -22,7 +26,7 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
         nextFireTime += Time.deltaTime;
-        if(nextFireTime >= selectedWeapon.fireRate)
+        if(nextFireTime >= selectedWeapon.fireRate && !isShooting)
         {
             canShoot = true;
         }
@@ -32,13 +36,45 @@ public class WeaponController : MonoBehaviour
         GameManager.instance.fPSCharacterController.PlayerShot();
 
     }
-    private void OnFire()
+    public void OnFire(InputAction.CallbackContext ctx)
     {
-        if(canShoot)
+        if (!ctx.performed) return;
+        if (canShoot)
         {
             Shoot();
             nextFireTime = 0;
-            canShoot= false;
+            canShoot = false;
         }      
+    }
+    public void OnWeaponSwitch(InputAction.CallbackContext ctx)
+    {
+        float value = ctx.ReadValue<float>();
+
+        if (value == 1) // key pressed
+        {
+            // Now check WHICH key was pressed
+            string controlName = ctx.control.name;
+
+            if (controlName == "1")
+            {
+                Debug.Log("Weapon 1 selected");
+                if(!isShooting)
+                {
+                    selectedWeapon.gameObject.SetActive(false);
+                    selectedWeapon = fireArms[0];
+                    selectedWeapon.gameObject.SetActive(true);
+                }
+            }
+            else if (controlName == "2")
+            {
+                Debug.Log("Weapon 2 selected");
+                if (!isShooting)
+                {
+                    selectedWeapon.gameObject.SetActive(false);
+                    selectedWeapon = fireArms[1];
+                    selectedWeapon.gameObject.SetActive(true);
+                }
+            }
+        }
     }
 }

@@ -27,10 +27,10 @@ public class FPSPlayerCamera : MonoBehaviour
         MouseLook();
     }
 
-    public void OnLook(InputValue value)
+    public void OnLook(InputAction.CallbackContext ctx)
     {
         //Every Time the mouse moves this is called
-        lookInput = value.Get<Vector2>();
+        lookInput = ctx.ReadValue<Vector2>();
     }
 
     void MouseLook()

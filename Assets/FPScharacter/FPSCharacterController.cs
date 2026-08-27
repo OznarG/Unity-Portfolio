@@ -33,7 +33,8 @@ public class FPSCharacterController : MonoBehaviour
     {
         //Create a sphere on the given location of the given size and check if is hitting the ground layer or not
         //choose based on what is given then return 
-        fpsStats.is_Jumping = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask) ? true : false;        
+        fpsStats.is_Jumping = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask) ? false : true;
+        Debug.Log(fpsStats.is_Jumping);
         return isGrounded = Physics.CheckSphere(fpsStats.groundCheck.position, fpsStats.groundDistance, fpsStats.groundMask);
     }
     void Moveplayer()
@@ -61,6 +62,7 @@ public class FPSCharacterController : MonoBehaviour
         //If is not grounded and no jumping
         if (IsGrounded() && !fpsStats.is_Jumping)
         {
+            Debug.Log("Jump Called");
             //Add force upward to make character jump
             velocity.y = Mathf.Sqrt(fpsStats.jumpForce * -2 * fpsStats.gravity);
         }
@@ -77,21 +79,23 @@ public class FPSCharacterController : MonoBehaviour
     }
 
     #region --- Input/Functions ---
-    void OnMovement(InputValue value)
+    public void OnMovement(InputAction.CallbackContext ctx)
     {
         //Chose what dirrection is moving and speed
-        moveInput = value.Get<Vector2>();
+        moveInput = ctx.ReadValue<Vector2>();
     }
-    void OnSprint()
+    public void OnSprint()
     {
         //If us not jumping then switch sprinting 
         if(!fpsStats.is_Jumping)
         {
             fpsStats.is_Running = !fpsStats.is_Running;
         }
-    }    
-    void OnJump()
-    {   
+    }
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        
+        if (!ctx.performed) return;
         JumpingPlayer();
     }
     #endregion
