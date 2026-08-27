@@ -22,7 +22,7 @@ public class Pistol : FireArm
     void Start()
     {
         anim = GetComponent<Animator>();
-        cam = GameManager.instance.mainCamera;
+        cam = GameManager.instance.mainCamera;       
     }
 
     // Update is called once per frame

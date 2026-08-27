@@ -8,11 +8,15 @@ public class ArmsAnimationBridge : MonoBehaviour
     }
     public void IsShooting()
     {
+        GameManager.instance.weaponController.canShoot = false;
         GameManager.instance.weaponController.isShooting = true;
+
     }
 
     public void DoneShooting()
     {
+        GameManager.instance.weaponController.canShoot = true;
+
         GameManager.instance.weaponController.isShooting = false;
     }
 }

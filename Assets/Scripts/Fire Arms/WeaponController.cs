@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
     public FireArm selectedWeapon;
     private Camera cam;
 
-    private bool canShoot;
+    public bool canShoot;
     public bool isShooting;
     public float nextFireTime;
 
@@ -25,11 +25,7 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nextFireTime += Time.deltaTime;
-        if(nextFireTime >= selectedWeapon.fireRate && !isShooting)
-        {
-            canShoot = true;
-        }
+
     }
     public void Shoot()
     {
@@ -41,9 +37,7 @@ public class WeaponController : MonoBehaviour
         if (!ctx.performed) return;
         if (canShoot)
         {
-            Shoot();
-            nextFireTime = 0;
-            canShoot = false;
+            Shoot();           
         }      
     }
     public void OnWeaponSwitch(InputAction.CallbackContext ctx)

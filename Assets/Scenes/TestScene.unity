@@ -22689,7 +22689,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 208804928593245280, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: fireRate
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 208804928593245280, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: weaponRange

@@ -84,7 +84,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PistolFire
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -98,7 +98,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -623603649343465320, guid: 15ab52fc0434aa94fa4435083c9e4276, type: 3}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: FireRate
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

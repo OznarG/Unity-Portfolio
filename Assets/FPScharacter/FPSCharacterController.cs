@@ -68,6 +68,7 @@ public class FPSCharacterController : MonoBehaviour
 
     public void PlayerShot()
     {
+        Animator.SetFloat("FireRate", GameManager.instance.weaponController.selectedWeapon.fireRate);
         Animator.SetTrigger("Fire");
     }
     public void ShootWeapon()
