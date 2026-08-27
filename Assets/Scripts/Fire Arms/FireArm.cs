@@ -8,8 +8,9 @@ public abstract class FireArm : MonoBehaviour
     public float weaponDamage;
     public float fireRate;
     public float nextFireTime;
-    public float magazine;
+    public float currentMagazine;
+    public float maxMagazine;
 
     public abstract void Shot();
-   
+    public abstract void Reload();
 }

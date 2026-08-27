@@ -6,17 +6,21 @@ public class ArmsAnimationBridge : MonoBehaviour
     {
         GameManager.instance.fPSCharacterController.ShootWeapon();
     }
-    public void IsShooting()
+    public void ReloadWeapon()
+    {
+        GameManager.instance.fPSCharacterController.ReloadWeapon();
+    }
+    public void IsAnimating()
     {
         GameManager.instance.weaponController.canShoot = false;
-        GameManager.instance.weaponController.isShooting = true;
+        GameManager.instance.weaponController.isAnimating = true;
 
     }
 
-    public void DoneShooting()
+    public void DoneAnimating()
     {
         GameManager.instance.weaponController.canShoot = true;
 
-        GameManager.instance.weaponController.isShooting = false;
+        GameManager.instance.weaponController.isAnimating = false;
     }
 }

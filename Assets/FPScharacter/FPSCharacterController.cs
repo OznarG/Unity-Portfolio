@@ -75,6 +75,16 @@ public class FPSCharacterController : MonoBehaviour
     {
         GameManager.instance.weaponController.selectedWeapon.Shot();
     }
+    public void StartPlayerReload()
+    {
+        Animator.SetTrigger("Reload");
+        GameManager.instance.weaponController.selectedWeapon.anim.SetTrigger("Reload");
+    }
+    public void ReloadWeapon()
+    {
+        GameManager.instance.weaponController.selectedWeapon.Reload();
+
+    }
 
     #region --- Input/Functions ---
     public void OnMovement(InputAction.CallbackContext ctx)

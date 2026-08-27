@@ -11,7 +11,7 @@ public class WeaponController : MonoBehaviour
     private Camera cam;
 
     public bool canShoot;
-    public bool isShooting;
+    public bool isAnimating;
     public float nextFireTime;
 
     private Ray ray;
@@ -35,10 +35,18 @@ public class WeaponController : MonoBehaviour
     public void OnFire(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;
-        if (canShoot)
+        if (canShoot && selectedWeapon.currentMagazine > 0)
         {
             Shoot();           
         }      
+    }
+    public void OnReload(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        if (!isAnimating)
+        {
+            GameManager.instance.fPSCharacterController.StartPlayerReload();
+        }
     }
     public void OnWeaponSwitch(InputAction.CallbackContext ctx)
     {
@@ -51,7 +59,7 @@ public class WeaponController : MonoBehaviour
 
             if (controlName == "1")
             {
-                if(!isShooting)
+                if(!isAnimating)
                 {
                     selectedWeapon.gameObject.SetActive(false);
                     selectedWeapon = fireArms[0];
@@ -60,7 +68,7 @@ public class WeaponController : MonoBehaviour
             }
             else if (controlName == "2")
             {
-                if (!isShooting)
+                if (!isAnimating)
                 {
                     selectedWeapon.gameObject.SetActive(false);
                     selectedWeapon = fireArms[1];
