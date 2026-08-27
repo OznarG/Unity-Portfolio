@@ -17419,7 +17419,7 @@ PrefabInstance:
       objectReference: {fileID: 1603958289}
     - target: {fileID: 1339697098039384054, guid: 09b9b59e8349b3846a17fce274cc5c41, type: 3}
       propertyPath: fireRate
-      value: 0.05
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1339697098039384054, guid: 09b9b59e8349b3846a17fce274cc5c41, type: 3}
       propertyPath: magazine
@@ -22689,7 +22689,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 208804928593245280, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: fireRate
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 208804928593245280, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: weaponRange
