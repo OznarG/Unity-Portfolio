@@ -6,6 +6,16 @@ public class Pistol : FireArm
     {       
         Debug.DrawRay(cam.transform.position, cam.transform.forward * weaponRange, Color.red);
         anim.SetTrigger("Fire");
+        RaycastHit hit;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weaponRange))
+        {
+            Debug.Log(hit.collider.tag.ToString());
+            IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+            if (damageable != null)
+                damageable.TakeDamage(weaponDamage);
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

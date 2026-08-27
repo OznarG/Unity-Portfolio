@@ -3,7 +3,8 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     [Header("--- Component/references ---")]
-    public FireArm weapon;
+    public FireArm[] fireArms = new FireArm[2] ;
+    public FireArm selectedWeapon;
     private Camera cam;
 
     private bool canShoot;
@@ -21,7 +22,7 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
         nextFireTime += Time.deltaTime;
-        if(nextFireTime >= weapon.fireRate)
+        if(nextFireTime >= selectedWeapon.fireRate)
         {
             canShoot = true;
         }
@@ -29,6 +30,7 @@ public class WeaponController : MonoBehaviour
     public void Shoot()
     {
         GameManager.instance.fPSCharacterController.PlayerShot();
+
     }
     private void OnFire()
     {

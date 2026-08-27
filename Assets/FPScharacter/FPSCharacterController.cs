@@ -73,7 +73,7 @@ public class FPSCharacterController : MonoBehaviour
     public void ShootWeapon()
     {
         Debug.Log("Weapon Anim called");
-        GameManager.instance.weaponController.weapon.Shot();
+        GameManager.instance.weaponController.selectedWeapon.Shot();
     }
 
     #region --- Input/Functions ---
