@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pistol : FireArm
 {
+    
     public override void Reload()
     {
         currentMagazine = maxMagazine;
@@ -29,7 +30,8 @@ public class Pistol : FireArm
     {
         anim = GetComponent<Animator>();
         cam = GameManager.instance.mainCamera;  
-        currentMagazine = maxMagazine;
+        audioSource = GetComponent<AudioSource>();
+        currentMagazine = maxMagazine;        
     }
 
     // Update is called once per frame
@@ -38,4 +40,12 @@ public class Pistol : FireArm
         
     }
 
+    public void PlayShot()
+    {
+        audioSource.PlayOneShot(shoots[0]);
+    }
+    public void PlayReload()
+    {
+        audioSource.PlayOneShot(magIn);
+    }
 }
