@@ -13,9 +13,9 @@ public class Pistol : FireArm
        Debug.DrawRay(cam.transform.position, cam.transform.forward * weaponRange, Color.red);
        anim.SetTrigger("Fire");
        RaycastHit hit;
-
        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weaponRange))
        {
+           Instantiate(GameManager.instance.weaponController.bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
            Debug.Log(hit.collider.tag.ToString());
            IDamage damageable = hit.collider.GetComponent<IDamage>();
 
@@ -43,9 +43,14 @@ public class Pistol : FireArm
     public void PlayShot()
     {
         audioSource.PlayOneShot(shoots[0]);
+        muzzleFlash.Play();
     }
     public void PlayReload()
     {
         audioSource.PlayOneShot(magIn);
+    }
+    public void TurnLightsOnOff()
+    {
+        muzzleLight.enabled = !muzzleLight.enabled;
     }
 }

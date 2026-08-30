@@ -22,10 +22,9 @@ public class WFX_LightFlicker : MonoBehaviour
 	
 	IEnumerator Flicker()
 	{
-		while(true)
-		{
-			GetComponent<Light>().enabled = !GetComponent<Light>().enabled;
-			
+        GetComponent<Light>().enabled = true;
+        while (timer > 0)
+		{			
 			do
 			{
 				timer -= Time.deltaTime;
@@ -34,5 +33,6 @@ public class WFX_LightFlicker : MonoBehaviour
 			while(timer > 0);
 			timer = time;
 		}
-	}
+        GetComponent<Light>().enabled = false;
+    }
 }

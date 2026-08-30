@@ -8,7 +8,9 @@ public class WeaponController : MonoBehaviour
     [Header("--- Component/references ---")]
     public FireArm[] fireArms = new FireArm[2] ;
     public FireArm selectedWeapon;
+    public GameObject bulletHole;
     private Camera cam;
+
 
     public bool canShoot;
     public bool isAnimating;
@@ -39,6 +41,10 @@ public class WeaponController : MonoBehaviour
         {
             Shoot();           
         }      
+        else if(selectedWeapon.currentMagazine <= 0)
+        {
+            selectedWeapon.audioSource.PlayOneShot(selectedWeapon.noBullets);
+        }
     }
     public void OnReload(InputAction.CallbackContext ctx)
     {
