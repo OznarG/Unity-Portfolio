@@ -8,7 +8,7 @@ public class WeaponController : MonoBehaviour
     [Header("--- Component/references ---")]
     public FireArm[] fireArms = new FireArm[2] ;
     public FireArm selectedWeapon;
-    public GameObject bulletHole;
+    public GameObject[] bulletHole;
     private Camera cam;
 
 

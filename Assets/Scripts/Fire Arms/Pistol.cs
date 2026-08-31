@@ -14,14 +14,20 @@ public class Pistol : FireArm
        anim.SetTrigger("Fire");
        RaycastHit hit;
        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weaponRange))
-       {
-           Instantiate(GameManager.instance.weaponController.bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
+       {          
            Debug.Log(hit.collider.tag.ToString());
            IDamage damageable = hit.collider.GetComponent<IDamage>();
 
-           if (damageable != null)
+            if (damageable != null)
+            {
                damageable.TakeDamage(weaponDamage);
-       }
+               Instantiate(GameManager.instance.weaponController.bulletHole[1], hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            else
+            {
+               Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
+            }
+        }
        currentMagazine--;      
     }
 
