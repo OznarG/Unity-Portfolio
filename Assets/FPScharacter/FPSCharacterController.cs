@@ -27,8 +27,7 @@ public class FPSCharacterController : MonoBehaviour
     {
         Moveplayer();
     }
-
-
+    #region ---MOVEMENT FUNCTIONS---
     bool IsGrounded()
     {
         //Create a sphere on the given location of the given size and check if is hitting the ground layer or not
@@ -43,7 +42,7 @@ public class FPSCharacterController : MonoBehaviour
         //Lerp fast to slowly get to the desired speed
         fpsStats.currentSpeed = Mathf.Lerp(fpsStats.currentSpeed, targetSpeed, Time.deltaTime * 10);
         //Get a direction based on the button being pressed, normalize, and Move the characterController 
-        Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.y ;
+        Vector3 direction = transform.right * moveInput.x + transform.forward * moveInput.y;
         direction.Normalize();
         characterController.Move(direction * fpsStats.currentSpeed * Time.deltaTime);
         //if is grounded and velocity on y is less than 0, don't keep adding speed down
@@ -65,26 +64,34 @@ public class FPSCharacterController : MonoBehaviour
             velocity.y = Mathf.Sqrt(fpsStats.jumpForce * -2 * fpsStats.gravity);
         }
     }
+    #endregion
 
+    #region ---ANIMATION FUNCTIONS---
     public void PlayerShot()
     {
+        //Set the animation fire of the gun's speed, since fire rate is based on the naimation not a countdown
+        //Then Triggers the arms Shot animation
         Animator.SetFloat("FireRate", GameManager.instance.weaponController.selectedWeapon.fireRate);
         Animator.SetTrigger("Fire");
     }
     public void ShootWeapon()
     {
+        //Calls the Weapon Shot functions, this method is triggered in a events in the arms animation
         GameManager.instance.weaponController.selectedWeapon.Shot();
     }
     public void StartPlayerReload()
     {
+        //Starts the reload animation, this is call from the weapon controller
+        //Then calls the weapon reload as well since they are supposed to happen at the same time
         Animator.SetTrigger("Reload");
         GameManager.instance.weaponController.selectedWeapon.anim.SetTrigger("Reload");
     }
     public void ReloadWeapon()
     {
+        //This is called by an event and calls the reload in the actual weapon 
         GameManager.instance.weaponController.selectedWeapon.Reload();
-
     }
+    #endregion
 
     #region --- Input/Functions ---
     public void OnMovement(InputAction.CallbackContext ctx)
@@ -101,8 +108,7 @@ public class FPSCharacterController : MonoBehaviour
         }
     }
     public void OnJump(InputAction.CallbackContext ctx)
-    {
-        
+    {       
         if (!ctx.performed) return;
         JumpingPlayer();
     }

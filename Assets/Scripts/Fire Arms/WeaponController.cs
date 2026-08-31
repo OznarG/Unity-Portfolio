@@ -5,6 +5,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class WeaponController : MonoBehaviour
 {
+    //Components Like fire arms and other usefull and needed references/variables
     [Header("--- Component/references ---")]
     public FireArm[] fireArms = new FireArm[2] ;
     public FireArm selectedWeapon;
@@ -16,7 +17,6 @@ public class WeaponController : MonoBehaviour
     public bool isAnimating;
     public float nextFireTime;
 
-    private Ray ray;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,18 +24,15 @@ public class WeaponController : MonoBehaviour
         cam = GameManager.instance.mainCamera;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void Shoot()
     {
+        //It starts the player shot animation that then calls the weapon fire animation through an event
         GameManager.instance.fPSCharacterController.PlayerShot();
-
     }
     public void OnFire(InputAction.CallbackContext ctx)
     {
+        //When the fire Button is pressed check if can shoot and has bullet and then Shot
+        //If not check if is because of bullet and play the noBullets sound
         if (!ctx.performed) return;
         if (canShoot && selectedWeapon.currentMagazine > 0)
         {
@@ -48,6 +45,7 @@ public class WeaponController : MonoBehaviour
     }
     public void OnReload(InputAction.CallbackContext ctx)
     {
+        //CHeck if is animating and if is not then interupt and call player reload
         if (!ctx.performed) return;
         if (!isAnimating)
         {
@@ -57,10 +55,10 @@ public class WeaponController : MonoBehaviour
     public void OnWeaponSwitch(InputAction.CallbackContext ctx)
     {
         float value = ctx.ReadValue<float>();
-
-        if (value == 1) // key pressed
+        //Check the key pressed and choose which weapon is under that key then set the other one off
+        if (value == 1) 
         {
-            // Now check WHICH key was pressed
+            
             string controlName = ctx.control.name;
 
             if (controlName == "1")
