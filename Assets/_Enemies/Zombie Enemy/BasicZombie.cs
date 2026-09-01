@@ -34,6 +34,7 @@ public class BasicZombie : Enemy, IDamage
     {
         
         agent.isStopped = true;
+        animator.SetTrigger("Dead");
         
     }
     #region ---Setters and Getters for Tree ---
