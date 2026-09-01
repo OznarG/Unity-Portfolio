@@ -10,7 +10,7 @@ public class GoToObject : Action
     [SerializeField] SharedVariable<GameObject> destination;
     [SerializeField] SharedVariable<float> ArriveDistance = 0.5f;
 
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     public override void OnAwake()
     {
