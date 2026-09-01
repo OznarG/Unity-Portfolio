@@ -10,6 +10,4 @@ public abstract class Enemy : MonoBehaviour
     public float walkSpeed;
     public float runSpeed;
     public float damage;
-
-    public abstract void Attack();
 }
