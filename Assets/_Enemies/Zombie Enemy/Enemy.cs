@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IDamage
 {
     public NavMeshAgent agent;
     public Transform target;
@@ -11,6 +11,6 @@ public abstract class Enemy : MonoBehaviour
     public float walkSpeed;
     public float runSpeed;
     public float damage;
-    
 
+    public abstract void TakeDamage(float amount);
 }

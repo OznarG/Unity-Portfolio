@@ -2,7 +2,7 @@ using Opsive.BehaviorDesigner.Runtime.Tasks.Actions;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicZombie : Enemy, IDamage
+public class BasicZombie : Enemy
 {
     public float follwDistance;
     public float distance;
@@ -25,17 +25,21 @@ public class BasicZombie : Enemy, IDamage
         
     }
 
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
-    }
-
     public void Die()
     {
         
         agent.isStopped = true;
         animator.SetTrigger("Dead");
-        
+        Debug.Log("DEADDD");    
+    }
+    public void DestroyZombie()
+    {
+        Destroy(gameObject);
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        health -= amount;
     }
     #region ---Setters and Getters for Tree ---
 
