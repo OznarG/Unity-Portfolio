@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public Camera mainCamera;
     public WeaponController weaponController;
     public FPSCharacterController fPSCharacterController;
+    public GameObject _playerObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {

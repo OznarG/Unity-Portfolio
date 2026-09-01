@@ -20,4 +20,10 @@ public class BasicZombie : Enemy, IDamage
     {
         health -= amount;
     }
+
+    public void Die()
+    {
+        agent.isStopped = true;
+        Destroy(gameObject);
+    }
 }
