@@ -24,7 +24,7 @@ public class EnemyAttacks : Action
     }
     public override TaskStatus OnUpdate()
     {       
-        if (HasArrived())
+        if (!HasArrived())
         {
             return TaskStatus.Failure;
         }

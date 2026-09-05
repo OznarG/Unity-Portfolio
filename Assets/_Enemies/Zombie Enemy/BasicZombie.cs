@@ -7,6 +7,7 @@ public class BasicZombie : Enemy
     public float follwDistance;
     public float distance;
     public float speed;
+    public bool animating;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public  void Start()
@@ -36,7 +37,11 @@ public class BasicZombie : Enemy
     {
         Destroy(gameObject);
     }
-
+    public void Attack()
+    {
+        Debug.Log("Attacking motherfuckers");
+        animator.SetTrigger("Attack");
+    }
     public override void TakeDamage(float amount)
     {
         health -= amount;
@@ -59,5 +64,17 @@ public class BasicZombie : Enemy
     { get { return follwDistance; } set { follwDistance = value; } }
     public float Distance
     { get { return distance; } set { distance = value; } }
+    public bool Animating
+    { get { return animating; } set { animating = value; } }
+    #endregion
+    #region ---ANIMATION EVENT---
+    public void Attacking()
+    {
+        animating = true;
+    }
+    public void EndAttacking()
+    {
+        animating = false;
+    }
     #endregion
 }
