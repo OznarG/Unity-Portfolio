@@ -1,0 +1,69 @@
+using System.Collections;
+using UnityEngine;
+
+public class Wound : MonoBehaviour
+{
+    public float duration = 25f;
+    public float multiplier;
+    public bool bleedTemp = false;
+    public bool bleedStopped = false;
+    private Coroutine bleedRoutine;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        StartBleeding();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    IEnumerator BleedEffect()
+    {
+        float timer = 0f;
+
+        Debug.Log("Bleeding started!");
+
+        while (timer < duration && !bleedStopped)
+        {
+            timer += Time.deltaTime;
+
+            GameManager.instance.characterStats.TakeDamage(0.25f * multiplier * Time.deltaTime);
+            
+            if(timer < duration && bleedTemp)
+            {
+                bleedStopped = true;
+            }
+            yield return null; // Espera al siguiente frame
+        }
+
+        StopBleeding();
+    }
+    public void StartBleeding()
+    {
+        // Si ya hay una hemorragia corriendo, no iniciar otra
+        if (bleedRoutine != null)
+            StopCoroutine(bleedRoutine);
+
+        bleedRoutine = StartCoroutine(BleedEffect());
+    }
+
+    public void StopBleeding()
+    {
+        if (bleedRoutine != null)
+        {
+            StopCoroutine(bleedRoutine);
+            bleedRoutine = null;
+        }
+
+        Debug.Log("Bleeding stopped!");
+    }
+
+    void OnDestroy()
+    {
+        StopBleeding();
+    }
+
+}

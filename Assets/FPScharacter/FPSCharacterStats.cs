@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FPSCharacterStats : MonoBehaviour
+public class FPSCharacterStats : MonoBehaviour, IDamage
 {
+    //Player Stats Basic
+    public float health;
     //Variables to control speed
     public float currentSpeed;
     public float walkSpeed;
@@ -17,16 +19,9 @@ public class FPSCharacterStats : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void TakeDamage(float amount)
     {
-        //Set the walk speed at start
-        currentSpeed = walkSpeed;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        health -= amount;
+        Debug.Log("Damage Taken");
     }
 }
