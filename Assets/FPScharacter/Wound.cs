@@ -4,7 +4,7 @@ using UnityEngine;
 public class Wound : MonoBehaviour
 {
     public float duration = 25f;
-    public float multiplier;
+    public float multiplier = 1;
     public bool bleedTemp = false;
     public bool bleedStopped = false;
     private Coroutine bleedRoutine;

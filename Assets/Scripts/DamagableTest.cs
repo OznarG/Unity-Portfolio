@@ -6,6 +6,11 @@ public class DamagableTest : MonoBehaviour, IDamage
     public float health = 1000;
     public TMP_Text text;
 
+    public void AddEffect()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void TakeDamage(float amount)
     {
         health -= amount;

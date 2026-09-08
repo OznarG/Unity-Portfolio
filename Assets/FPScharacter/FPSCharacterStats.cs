@@ -19,6 +19,12 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
     public Transform groundCheck;
     public LayerMask groundMask;
 
+    public void AddEffect()
+    {
+        Wound wound = gameObject.AddComponent<Wound>();
+       
+    }
+
     public void TakeDamage(float amount)
     {
         health -= amount;

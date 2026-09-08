@@ -5,6 +5,11 @@ public class EnemyHitSpots : MonoBehaviour, IDamage
     [SerializeField] Enemy enemy;
     [SerializeField] float damageMultiplier;
 
+    public void AddEffect()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void TakeDamage(float amount)
     {
         switch(damageMultiplier)

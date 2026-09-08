@@ -12,5 +12,10 @@ public abstract class Enemy : MonoBehaviour, IDamage
     public float runSpeed;
     public float damage;
 
+    public void AddEffect()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public abstract void TakeDamage(float amount);
 }
