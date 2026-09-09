@@ -5,6 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager instance;
     public PlayerInput input;
+    public bool isPaused;
     public GameObject selectedMenu;
     public GameObject pauseMenu;
     public GameObject healthStatsMenu;
@@ -24,9 +25,45 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    public void OnPause(InputAction.CallbackContext ctx)
+    public void TogglePause()
+    {       
+        if (!isPaused)
+        {
+            selectedMenu = pauseMenu;
+            selectedMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            isPaused = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+            selectedMenu.SetActive(false);
+            selectedMenu = null;            
+            isPaused = false;
+            
+        }
+    }
+    public void OpenHealthStats()
     {
-        if (!ctx.performed) return;
-        Debug.Log("PauseWasPressed");
+        if(isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+            selectedMenu.SetActive(false);
+            selectedMenu = null;
+            isPaused = false;
+        }
+        else
+        {
+            selectedMenu = healthStatsMenu;
+            selectedMenu.SetActive(true);
+            Time.timeScale = 0;          
+            isPaused = true;
+        }
     }
 }

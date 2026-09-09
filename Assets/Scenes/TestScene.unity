@@ -18221,6 +18221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc60ecf500b3db4dbe3a435ce47a0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
+  isPaused: 0
   selectedMenu: {fileID: 0}
   pauseMenu: {fileID: 1124465730}
   healthStatsMenu: {fileID: 1116405155}
@@ -37619,6 +37621,78 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 5c107d7a-6403-484a-9985-d37443c9dfa2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: 'OnFoot/Pause[/Keyboard/escape]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8757476617564830268}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FPSCharacterController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: WeaponController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputFunctionsLinker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 248947718301968517, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1094052270756828998, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_Name
       value: Player
@@ -37682,6 +37756,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1094052270756828998, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       insertIndex: 1
       addedObject: {fileID: 8757476617564830261}
+    - targetCorrespondingSourceObject: {fileID: 1094052270756828998, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8757476617564830268}
   m_SourcePrefab: {fileID: 100100000, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
 --- !u!114 &8757476617564830250 stripped
 MonoBehaviour:
@@ -37731,6 +37808,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b55722d431856c44901c0ee107d4ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8757476617564830268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268819032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55ea69dbd6c77149a91362efe069db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
