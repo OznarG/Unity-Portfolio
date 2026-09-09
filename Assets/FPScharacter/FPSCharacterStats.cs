@@ -21,6 +21,10 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
     public LayerMask groundMask;
     public HealthManager healthManager;
 
+    void Start()
+    {
+        healthManager = GetComponent<HealthManager>();
+    }
     public void AddEffect(WoundTypes type, BodyParts bodyPart)
     {       
         healthManager.ChooseEffect(type, bodyPart);

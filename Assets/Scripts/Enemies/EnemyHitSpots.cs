@@ -10,6 +10,11 @@ public class EnemyHitSpots : MonoBehaviour, IDamage
         throw new System.NotImplementedException();
     }
 
+    public void AddEffect(WoundTypes type, BodyParts bodyPart)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void TakeDamage(float amount)
     {
         switch(damageMultiplier)

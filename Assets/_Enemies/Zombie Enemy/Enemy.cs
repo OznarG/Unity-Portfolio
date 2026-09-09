@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour, IDamage
     public float runSpeed;
     public float damage;
 
-    public void AddEffect()
+    public void AddEffect(WoundTypes type, BodyParts bodyPart)
     {
         throw new System.NotImplementedException();
     }
