@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class WoundTester : MonoBehaviour
@@ -8,7 +9,12 @@ public class WoundTester : MonoBehaviour
 
         if(damageable != null )
         {
-            damageable.AddEffect();
+            WoundTypes type = (WoundTypes)Random.Range(0, System.Enum.GetValues(typeof(WoundTypes)).Length);
+            BodyParts part = (BodyParts)Random.Range(0, System.Enum.GetValues(typeof(BodyParts)).Length);
+            Debug.Log("Random wound: " + type);
+            Debug.Log("Random body part: " + part);
+
+            damageable.AddEffect(type, part);
         }
     }
 }

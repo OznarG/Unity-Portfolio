@@ -6,7 +6,7 @@ public class DamagableTest : MonoBehaviour, IDamage
     public float health = 1000;
     public TMP_Text text;
 
-    public void AddEffect()
+    public void AddEffect(WoundTypes type, BodyParts bodyPart)
     {
         throw new System.NotImplementedException();
     }

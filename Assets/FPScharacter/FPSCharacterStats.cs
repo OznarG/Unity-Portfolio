@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,11 +19,11 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
     //Components and References
     public Transform groundCheck;
     public LayerMask groundMask;
+    public HealthManager healthManager;
 
-    public void AddEffect()
-    {
-        Wound wound = gameObject.AddComponent<Wound>();
-       
+    public void AddEffect(WoundTypes type, BodyParts bodyPart)
+    {       
+        healthManager.ChooseEffect(type, bodyPart);
     }
 
     public void TakeDamage(float amount)

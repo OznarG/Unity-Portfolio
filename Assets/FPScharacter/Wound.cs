@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class Wound : MonoBehaviour
 {
-    public float duration = 25f;
-    public float multiplier = 1;
+    public float duration;
+    public float multiplier;
     public bool bleedTemp = false;
     public bool bleedStopped = false;
     private Coroutine bleedRoutine;
+    public WoundTypes woundType;
+    public BodyParts bodyPart;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
