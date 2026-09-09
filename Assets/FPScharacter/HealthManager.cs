@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 public enum WoundTypes
 {
     BITE, DEEP_lACERATION, LACERATION, DEEP_SCRATCH, SCRATCH 
@@ -7,10 +8,17 @@ public enum BodyParts
 {
     HEAD, NECK, LEFT_LEG, RIGHT_LEG, UPPER_BODY, LEFT_ARM, RIGHT_ARM
 }
-
+[System.Serializable]
+public struct WoundsMarks
+{
+    public Image laseration;
+    public Image scratch;
+    public Image bite;
+    public Image bandage;
+}
 public class HealthManager : MonoBehaviour
 {
-
+    [SerializeField] WoundsMarks[] marks;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,12 +34,12 @@ public class HealthManager : MonoBehaviour
     public void ChooseEffect(WoundTypes type, BodyParts bodyPart)
     {
         Wound wound = gameObject.AddComponent<Wound>();
-        WoundTypeEffect(type, wound);
         BodyPartEffect(bodyPart, wound);
+        WoundTypeEffect(type, wound);
     }
     public void BodyPartEffect(BodyParts bodyPart, Wound wound)
     {
-        wound.bodyPart = bodyPart;
+        wound.bodyPart = bodyPart;       
         switch (bodyPart)
         {
             case BodyParts.HEAD:
@@ -58,6 +66,7 @@ public class HealthManager : MonoBehaviour
             default:
                 break;
         }
+        wound.woundsMark = marks[(int)bodyPart];
     }
     public void WoundTypeEffect(WoundTypes woundType, Wound wound)
     {
@@ -66,18 +75,23 @@ public class HealthManager : MonoBehaviour
         {
             case WoundTypes.BITE:
                 wound.duration = 40;
+                wound.woundsMark.bite.gameObject.SetActive(true);
                 break;
             case WoundTypes.DEEP_lACERATION:
                 wound.duration = 50;
+                wound.woundsMark.laseration.gameObject.SetActive(true);
                 break;
             case WoundTypes.LACERATION:
                 wound.duration = 30;
+                wound.woundsMark.laseration.gameObject.SetActive(true);
                 break;
             case WoundTypes.DEEP_SCRATCH:
                 wound.duration = 20;
+                wound.woundsMark.scratch.gameObject.SetActive(true);
                 break;
             case WoundTypes.SCRATCH:
                 wound.duration = 10;
+                wound.woundsMark.scratch.gameObject.SetActive(true);
                 break;
             default:
                 break;

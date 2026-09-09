@@ -10,6 +10,7 @@ public class Wound : MonoBehaviour
     private Coroutine bleedRoutine;
     public WoundTypes woundType;
     public BodyParts bodyPart;
+    public WoundsMarks woundsMark;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

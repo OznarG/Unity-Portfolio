@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4544,7 +4544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9270,7 +9270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24153,7 +24153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25515,7 +25515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -27893,7 +27893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.69411767}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -40582,6 +40582,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b55722d431856c44901c0ee107d4ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marks:
+  - laseration: {fileID: 1705010819}
+    scratch: {fileID: 704272868}
+    bite: {fileID: 609302074}
+    bandage: {fileID: 949542770}
+  - laseration: {fileID: 377782899}
+    scratch: {fileID: 1362914899}
+    bite: {fileID: 1970781643}
+    bandage: {fileID: 232023183}
+  - laseration: {fileID: 2056553742}
+    scratch: {fileID: 1979575398}
+    bite: {fileID: 408306737}
+    bandage: {fileID: 536928809}
+  - laseration: {fileID: 2072417483}
+    scratch: {fileID: 635754910}
+    bite: {fileID: 1373360300}
+    bandage: {fileID: 1063296218}
+  - laseration: {fileID: 2099237272}
+    scratch: {fileID: 1407754600}
+    bite: {fileID: 854843473}
+    bandage: {fileID: 1745322105}
+  - laseration: {fileID: 1502484071}
+    scratch: {fileID: 1252809849}
+    bite: {fileID: 2089672138}
+    bandage: {fileID: 1787657790}
+  - laseration: {fileID: 49481854}
+    scratch: {fileID: 1629799859}
+    bite: {fileID: 2038596512}
+    bandage: {fileID: 643609482}
 --- !u!114 &8757476617564830268
 MonoBehaviour:
   m_ObjectHideFlags: 0
