@@ -12,7 +12,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Movement",
@@ -72,6 +72,15 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "5c107d7a-6403-484a-9985-d37443c9dfa2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleHealtStats",
+                    "type": "Button",
+                    "id": "20b840cc-c196-4d82-b448-0e8aa78eec58",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -219,6 +228,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "435d0811-6cf3-4e70-9594-64f7e1303b68",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleHealtStats",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

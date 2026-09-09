@@ -20,4 +20,10 @@ public class InputFunctionsLinker : MonoBehaviour
         if (!ctx.performed) return;
         MenuManager.instance.TogglePause();
     }
+    public void OnToggleHealtStats(InputAction.CallbackContext ctx)
+    { 
+        if (!ctx.performed) return;
+        MenuManager.instance.OpenHealthStats();
+    
+    }
 }

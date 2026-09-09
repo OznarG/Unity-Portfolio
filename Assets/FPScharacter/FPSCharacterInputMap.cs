@@ -98,7 +98,7 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Movement"",
@@ -158,6 +158,15 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""5c107d7a-6403-484a-9985-d37443c9dfa2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleHealtStats"",
+                    ""type"": ""Button"",
+                    ""id"": ""20b840cc-c196-4d82-b448-0e8aa78eec58"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -307,6 +316,17 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""435d0811-6cf3-4e70-9594-64f7e1303b68"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleHealtStats"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -323,6 +343,7 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
         m_OnFoot_WeaponSwitch = m_OnFoot.FindAction("WeaponSwitch", throwIfNotFound: true);
         m_OnFoot_Reload = m_OnFoot.FindAction("Reload", throwIfNotFound: true);
         m_OnFoot_Pause = m_OnFoot.FindAction("Pause", throwIfNotFound: true);
+        m_OnFoot_ToggleHealtStats = m_OnFoot.FindAction("ToggleHealtStats", throwIfNotFound: true);
     }
 
     ~@FPSCharacterInputMap()
@@ -411,6 +432,7 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_WeaponSwitch;
     private readonly InputAction m_OnFoot_Reload;
     private readonly InputAction m_OnFoot_Pause;
+    private readonly InputAction m_OnFoot_ToggleHealtStats;
     /// <summary>
     /// Provides access to input actions defined in input action map "OnFoot".
     /// </summary>
@@ -454,6 +476,10 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "OnFoot/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_OnFoot_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "OnFoot/ToggleHealtStats".
+        /// </summary>
+        public InputAction @ToggleHealtStats => m_Wrapper.m_OnFoot_ToggleHealtStats;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -504,6 +530,9 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @ToggleHealtStats.started += instance.OnToggleHealtStats;
+            @ToggleHealtStats.performed += instance.OnToggleHealtStats;
+            @ToggleHealtStats.canceled += instance.OnToggleHealtStats;
         }
 
         /// <summary>
@@ -539,6 +568,9 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @ToggleHealtStats.started -= instance.OnToggleHealtStats;
+            @ToggleHealtStats.performed -= instance.OnToggleHealtStats;
+            @ToggleHealtStats.canceled -= instance.OnToggleHealtStats;
         }
 
         /// <summary>
@@ -635,5 +667,12 @@ public partial class @FPSCharacterInputMap: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleHealtStats" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleHealtStats(InputAction.CallbackContext context);
     }
 }
