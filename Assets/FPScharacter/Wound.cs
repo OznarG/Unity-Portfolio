@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wound : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Wound : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {      
         StartBleeding();
     }
 
@@ -69,4 +70,13 @@ public class Wound : MonoBehaviour
         StopBleeding();
     }
 
+    public void UseBandage()
+    {
+        woundsMark.bandage.gameObject.SetActive(true);
+        StopBleeding();
+    }
+    public void SelectWound()
+    {
+        HealthManager.instance.selectedWound = this;
+    }
 }

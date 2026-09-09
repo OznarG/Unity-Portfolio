@@ -62,7 +62,9 @@ public class MenuManager : MonoBehaviour
         {
             selectedMenu = healthStatsMenu;
             selectedMenu.SetActive(true);
-            Time.timeScale = 0;          
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+            Cursor.visible = true;
             isPaused = true;
         }
     }

@@ -18,11 +18,17 @@ public struct WoundsMarks
 }
 public class HealthManager : MonoBehaviour
 {
+    public static HealthManager instance;
     [SerializeField] WoundsMarks[] marks;
+    public WoundMarkLinker[] woundMarkButtons;
+    public Wound selectedWound;
+    public Button healButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        instance = this;
+        selectedWound = null;
+        healButton.onClick.AddListener(BandageWound);
     }
 
     // Update is called once per frame
@@ -67,6 +73,7 @@ public class HealthManager : MonoBehaviour
                 break;
         }
         wound.woundsMark = marks[(int)bodyPart];
+        woundMarkButtons[(int)bodyPart].wound = wound;
     }
     public void WoundTypeEffect(WoundTypes woundType, Wound wound)
     {
@@ -98,4 +105,8 @@ public class HealthManager : MonoBehaviour
         }
     }
     
+    public void BandageWound()
+    {
+        selectedWound.UseBandage();
+    }
 }
