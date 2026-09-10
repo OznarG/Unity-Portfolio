@@ -5,6 +5,7 @@ public class WoundMarkLinker : MonoBehaviour
 {
     public Button selector;
     public Wound wound;
+    public Image selectionhighlight;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +20,10 @@ public class WoundMarkLinker : MonoBehaviour
     
     public void SelectWound()
     {
-        wound.SelectWound();
+        HealthManager.instance.selectionhighlight.gameObject.SetActive(false);
+        wound.SelectWound();    
+        HealthManager.instance.selectionhighlight = selectionhighlight;
+        selectionhighlight.gameObject.SetActive(true);
     }
 
 }

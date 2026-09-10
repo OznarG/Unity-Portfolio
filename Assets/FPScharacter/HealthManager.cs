@@ -22,6 +22,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] WoundsMarks[] marks;
     public WoundMarkLinker[] woundMarkButtons;
     public Wound selectedWound;
+    public Image selectionhighlight;
     public Button healButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
