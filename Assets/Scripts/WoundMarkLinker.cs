@@ -20,7 +20,11 @@ public class WoundMarkLinker : MonoBehaviour
     
     public void SelectWound()
     {
-        HealthManager.instance.selectionhighlight.gameObject.SetActive(false);
+        if(HealthManager.instance.selectionhighlight != null)
+        {
+            HealthManager.instance.selectionhighlight.gameObject.SetActive(false);
+        }
+
         wound.SelectWound();    
         HealthManager.instance.selectionhighlight = selectionhighlight;
         selectionhighlight.gameObject.SetActive(true);
