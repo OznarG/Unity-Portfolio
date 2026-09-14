@@ -25,5 +25,9 @@ public class RangeDetector : MonoBehaviour
         return DetectedTarget;
     }
 
-    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
 }

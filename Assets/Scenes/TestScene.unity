@@ -31578,7 +31578,7 @@ Transform:
   m_GameObject: {fileID: 1780181464509318274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 5.01, y: 0.0400002, z: 8.3}
+  m_LocalPosition: {x: 5.01, y: 0.0400002, z: 3.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32427,6 +32427,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1774813007780031470}
+  - component: {fileID: 1780181464509318287}
+  - component: {fileID: 1780181464509318288}
   - component: {fileID: 1780181464509318278}
   - component: {fileID: 1780181464509318285}
   - component: {fileID: 1780181464509318284}
@@ -32434,13 +32436,14 @@ GameObject:
   - component: {fileID: 1780181464509318281}
   - component: {fileID: 1780181464509318280}
   - component: {fileID: 1780181464509318282}
+  - component: {fileID: 1780181464509318286}
   m_Layer: 0
   m_Name: BasicZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &1780181464509318276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32895,7 +32898,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780181464509318274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cdaa3305fa954c45a80c9662aa6f425, type: 3}
   m_Name: 
@@ -32987,6 +32990,98 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1780181464509318286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780181464509318274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -6630630045079038932, guid: 48c8bf06cb388944e8362af84f5e8441, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 5812421122903245147
+  - rid: 5812421122903245148
+  - rid: 5812421122903245399
+  - rid: 5812421122903245635
+  m_OriginalGraph: {fileID: -6630630045079038932, guid: 48c8bf06cb388944e8362af84f5e8441, type: 2}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5812421122903245147
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 1780181464509318274}
+    - rid: 5812421122903245148
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14366764140848021807
+          m_Value1: 17799190010857154728
+        Name: Target
+        m_Value: {fileID: 268819032}
+    - rid: 5812421122903245399
+      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7485780898459518690
+          m_Value1: 3438975748747801888
+        Name: New Range Detector
+        m_Value: {fileID: 1780181464509318287}
+    - rid: 5812421122903245635
+      type: {class: 'BlackboardVariable`1[[LineOfSight, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5800003192412990525
+          m_Value1: 894165592691748524
+        Name: New Line Of Sight
+        m_Value: {fileID: 1780181464509318288}
+--- !u!114 &1780181464509318287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780181464509318274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64078e453b5a6949b95d271f5ca6a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 10
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 128
+  showDeubVisuals: 1
+--- !u!114 &1780181464509318288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780181464509318274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b1d90e4e67ed347bb0479d6afcf514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_detectionRange: 10
+  m_detectionHeight: 3
+  showSebugVisuals: 1
+  oj: {fileID: 0}
 --- !u!1 &1780197925168572026
 GameObject:
   m_ObjectHideFlags: 0
@@ -40389,6 +40484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1094052270756828998, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6400638090803661764, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_Volume
       value: 0.509
@@ -40403,7 +40502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.28
+      value: 1.2800002
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40415,15 +40514,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
