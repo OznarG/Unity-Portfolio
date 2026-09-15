@@ -15,6 +15,7 @@ public class WoundTester : MonoBehaviour
             Debug.Log("Random body part: " + part);
 
             damageable.AddEffect(type, part);
+            damageable.TakeDamage(10);
         }
     }
 }
