@@ -43,7 +43,9 @@ public class BasicZombie : Enemy
 
         agent.isStopped = true;
         animator.SetTrigger("Dead");
+        animator.SetBool("animating", true );
         Debug.Log("DEADDD");    
+        Destroy(gameObject, 2);
     }
     public void DestroyZombie()
     {
