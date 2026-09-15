@@ -13,16 +13,15 @@ public class LineOfSight : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = potentialTarget.transform.position - transform.position; 
         Physics.Raycast(transform.position + Vector3.up * m_detectionHeight, direction, out hit, m_detectionRange, m_playerLayerMask);
-
-        if(hit.collider != null /*&& hit.collider.gameObject == potentialTarget*/)
+        Debug.Log("Shotting Ray?");
+        Debug.Log(potentialTarget);
+        Debug.Log(hit.collider);
+        Debug.DrawLine(transform.position + Vector3.up * m_detectionHeight, potentialTarget.transform.position, Color.green);
+        if (hit.collider == null)
         {
-            if(showSebugVisuals && this.enabled)
-            {
-                Debug.DrawLine(transform.position + Vector3.up * m_detectionHeight, potentialTarget.transform.position, Color.green);
-            }
-            Debug.Log("Hitting player");
-            oj = hit.transform.gameObject;
-            return hit.collider.gameObject;
+
+            
+            return potentialTarget;
 
         }
         else
