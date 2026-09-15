@@ -32435,13 +32435,13 @@ GameObject:
   - component: {fileID: 1780181464509318287}
   - component: {fileID: 1780181464509318288}
   - component: {fileID: 1780181464509318278}
+  - component: {fileID: 1780181464509318286}
   - component: {fileID: 1780181464509318285}
   - component: {fileID: 1780181464509318284}
   - component: {fileID: 1780181464509318276}
   - component: {fileID: 1780181464509318281}
   - component: {fileID: 1780181464509318280}
   - component: {fileID: 1780181464509318282}
-  - component: {fileID: 1780181464509318286}
   m_Layer: 0
   m_Name: BasicZombie
   m_TagString: Untagged
@@ -32499,6 +32499,12 @@ MonoBehaviour:
   distance: 0
   speed: 0
   animating: 0
+  blackBoardPaused:
+    GUID:
+      m_Value0: 0
+      m_Value1: 0
+    Name: 
+    m_Value: 0
 --- !u!114 &1780181464509318280
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -33014,6 +33020,7 @@ MonoBehaviour:
   - rid: 5812421122903245399
   - rid: 5812421122903245635
   - rid: 5812421225696986076
+  - rid: 5812421235558843285
   m_OriginalGraph: {fileID: -6630630045079038932, guid: 48c8bf06cb388944e8362af84f5e8441, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -33066,6 +33073,15 @@ MonoBehaviour:
         - {fileID: 113625426}
         - {fileID: 469552883}
         - {fileID: 2601551}
+    - rid: 5812421235558843285
+      type: {class: 'SharedBlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17597704510653711963
+          m_Value1: 7012681137968001963
+        Name: PauseNodes
+        m_Value: 0
+        m_SharedVariablesRuntimeAsset: {fileID: 1051425418137799648, guid: 48c8bf06cb388944e8362af84f5e8441, type: 2}
 --- !u!114 &1780181464509318287
 MonoBehaviour:
   m_ObjectHideFlags: 0

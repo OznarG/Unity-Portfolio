@@ -1,4 +1,5 @@
 using Opsive.BehaviorDesigner.Runtime.Tasks.Actions;
+using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,12 +9,20 @@ public class BasicZombie : Enemy
     public float distance;
     public float speed;
     public bool animating;
+
+    public BlackboardVariable<bool> blackBoardPaused;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public  void Start()
     {
        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+       animator = GetComponent<Animator>();
+       BehaviorGraphAgent behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
+        if (behaviorGraphAgent == null )
+        {
+            Debug.Log("Couldn't get variable");
+        }
+        behaviorGraphAgent.BlackboardReference.GetVariable("PauseNodes", out blackBoardPaused);
         
     }
 
@@ -28,7 +37,10 @@ public class BasicZombie : Enemy
 
     public void Die()
     {
-        
+        blackBoardPaused.ObjectValue = true;
+        BehaviorGraphAgent behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
+        behaviorGraphAgent.BlackboardReference.SetVariableValue("PauseNodes", true);
+
         agent.isStopped = true;
         animator.SetTrigger("Dead");
         Debug.Log("DEADDD");    
@@ -45,6 +57,10 @@ public class BasicZombie : Enemy
     public override void TakeDamage(float amount)
     {
         health -= amount;
+        if(health <= 0)
+        {
+            Die();
+        }
     }
     #region ---Setters and Getters for Tree ---
 
