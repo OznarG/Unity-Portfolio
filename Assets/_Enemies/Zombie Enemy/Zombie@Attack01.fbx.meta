@@ -61,13 +61,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.02324148
-        functionName: Attacking
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0
         functionName: Attacking
         data: 
@@ -75,8 +68,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9813572
-        functionName: EndAttacking
+      - time: 0.02324148
+        functionName: Attacking
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -89,8 +82,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5891393
+      - time: 0.27226686
         functionName: TurnOffDamageArea
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9813572
+        functionName: EndAttacking
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
