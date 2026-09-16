@@ -13,6 +13,8 @@ public partial class RangeDetectorAction : Action
 
     protected override Status OnUpdate()
     {
+        //This is the variable(Sequence) in the blackboard so if the Value is false then fail, the player was not found and if it return true then success and 
+        //pass the sequence
         Target.Value = Detector.Value.UpdateDetector();
         return Target.Value == null ? Status.Failure : Status.Success; 
     }

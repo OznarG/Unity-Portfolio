@@ -11,6 +11,7 @@ public partial class LineOfSightCheckCondition : Condition
 
     public override bool IsTrue()
     {
+        //This is a blackboard sequence check that return true if is not null, so if the player is returned then is true
         return Detector.Value.PerformDetection(Target.Value) != null;
     }
 

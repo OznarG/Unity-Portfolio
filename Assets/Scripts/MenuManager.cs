@@ -18,13 +18,7 @@ public class MenuManager : MonoBehaviour
     {
         input = GameManager.instance._playerObj.GetComponent<PlayerInput>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Functions to set the menus on or off
     public void TogglePause()
     {       
         if (!isPaused)

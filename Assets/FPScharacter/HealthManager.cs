@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+//ENUMS to make everything easier to read in the code
 public enum WoundTypes
 {
     BITE, DEEP_lACERATION, LACERATION, DEEP_SCRATCH, SCRATCH 
@@ -8,6 +9,7 @@ public enum BodyParts
 {
     HEAD, NECK, LEFT_LEG, RIGHT_LEG, UPPER_BODY, LEFT_ARM, RIGHT_ARM
 }
+//Created a Structure and added Serializable so we can see it in the inspector
 [System.Serializable]
 public struct WoundsMarks
 {
@@ -18,34 +20,34 @@ public struct WoundsMarks
 }
 public class HealthManager : MonoBehaviour
 {
+    //References
     public static HealthManager instance;
     [SerializeField] WoundsMarks[] marks;
     public WoundMarkLinker[] woundMarkButtons;
     public Wound selectedWound;
     public Image selectionhighlight;
     public Button healButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
+        //Created instance and add Lisener to healbutton
+        //Sellected wound is set to null
         instance = this;
         selectedWound = null;
         healButton.onClick.AddListener(BandageWound);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChooseEffect(WoundTypes type, BodyParts bodyPart)
     {
+        //It creates a wound variable and add it to the gameObject
         Wound wound = gameObject.AddComponent<Wound>();
+        //Add Bodypart effect and wound type effect
         BodyPartEffect(bodyPart, wound);
         WoundTypeEffect(type, wound);
     }
     public void BodyPartEffect(BodyParts bodyPart, Wound wound)
     {
+        //Grabs the passed wound and set bodypart equals to the one passed
+        //based on the body part passsed add multiplayer to wound for the damage
         wound.bodyPart = bodyPart;       
         switch (bodyPart)
         {
@@ -73,11 +75,16 @@ public class HealthManager : MonoBehaviour
             default:
                 break;
         }
+        //wound marks is set the the marks list and choose the body part
+        //based on the bodypart since they are on order 
         wound.woundsMark = marks[(int)bodyPart];
+        //Set the wound generated to be controlled by the button on that area. 
         woundMarkButtons[(int)bodyPart].wound = wound;
     }
     public void WoundTypeEffect(WoundTypes woundType, Wound wound)
     {
+        //set wound type to the passed type
+        //then based on the type chooses the duration and marks
         wound.woundType = woundType;
         switch (woundType)
         {
@@ -105,9 +112,9 @@ public class HealthManager : MonoBehaviour
                 break;
         }
     }
-    
     public void BandageWound()
     {
+        //Grabs Wound and put bandage on it
         selectedWound.UseBandage();
     }
 }

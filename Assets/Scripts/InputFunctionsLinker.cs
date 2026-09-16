@@ -4,17 +4,8 @@ using UnityEngine.InputSystem;
 public class InputFunctionsLinker : MonoBehaviour
 {
     private PlayerInput playerInput;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //This calls the menus functions with the inputs so is not mixed with the player's
+    //buttons here call the menu manager, Anything controlling Menus have to be here
     public void OnPause(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;

@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class FPSCharacterStats : MonoBehaviour, IDamage
 {
+    //TODO: Add flash screen when taking damage
+
     //Player Stats Basic
     public float health;
     //Variables to control speed
@@ -23,8 +25,10 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
 
     void Start()
     {
+        //get health maneger
         healthManager = GetComponent<HealthManager>();
     }
+    //static method Idamage so it can be called to take damage
     public void AddEffect(WoundTypes type, BodyParts bodyPart)
     {       
         healthManager.ChooseEffect(type, bodyPart);
@@ -33,6 +37,5 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
     public void TakeDamage(float amount)
     {
         health -= amount;
-        Debug.Log("Damage Taken");
     }
 }

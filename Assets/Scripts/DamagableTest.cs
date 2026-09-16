@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 
+//This gets damage from the player gun and put it on test to test it 
 public class DamagableTest : MonoBehaviour, IDamage
 {
     public float health = 1000;
