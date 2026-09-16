@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public FPSCharacterController fPSCharacterController;
     public FPSCharacterStats characterStats;
     public GameObject _playerObj;
+    public PlayerHUD playerHUD;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {

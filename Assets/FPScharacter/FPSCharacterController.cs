@@ -20,6 +20,7 @@ public class FPSCharacterController : MonoBehaviour
         //Get the components automatically
         fpsStats = GetComponent<FPSCharacterStats>();
         characterController = GetComponent<CharacterController>();
+        
     }
 
     // Update is called once per frame

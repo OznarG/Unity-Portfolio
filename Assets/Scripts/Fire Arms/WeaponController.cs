@@ -22,6 +22,9 @@ public class WeaponController : MonoBehaviour
     {
         canShoot = true;
         cam = GameManager.instance.mainCamera;
+        //Update the ammo bar
+        GameManager.instance.playerHUD.UpdateBar(HUD_BAR.AMMOBAR, selectedWeapon.currentMagazine, selectedWeapon.maxMagazine);
+
     }
 
     public void Shoot()
@@ -79,6 +82,8 @@ public class WeaponController : MonoBehaviour
                     selectedWeapon.gameObject.SetActive(true);
                 }
             }
+            GameManager.instance.playerHUD.UpdateBar(HUD_BAR.AMMOBAR, selectedWeapon.currentMagazine, selectedWeapon.maxMagazine);
+
         }
     }
 }

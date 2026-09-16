@@ -29,7 +29,9 @@ public class Pistol : FireArm
            }
         }
        //Decrease one bullet from gun
-       currentMagazine--;      
+       currentMagazine--;
+       //Updated Ammo hud bar
+       GameManager.instance.playerHUD.UpdateBar(HUD_BAR.AMMOBAR, currentMagazine, maxMagazine);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,6 +47,8 @@ public class Pistol : FireArm
     public override void Reload()
     {
         currentMagazine = maxMagazine;
+        GameManager.instance.playerHUD.UpdateBar(HUD_BAR.AMMOBAR, currentMagazine, maxMagazine);
+
     }
     //Play the Shot Sound and particle, this is called in gunfire event
     public void PlayShot()

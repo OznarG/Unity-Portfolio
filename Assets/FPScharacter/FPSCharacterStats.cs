@@ -8,6 +8,7 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
 
     //Player Stats Basic
     public float health;
+    public float maxHealth;
     //Variables to control speed
     public float currentSpeed;
     public float walkSpeed;
@@ -27,6 +28,9 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
     {
         //get health maneger
         healthManager = GetComponent<HealthManager>();
+        health = maxHealth;
+        //Updates health bar
+        GameManager.instance.playerHUD.UpdateBar(HUD_BAR.HEALTHBAR, health, maxHealth);
     }
     //static method Idamage so it can be called to take damage
     public void AddEffect(WoundTypes type, BodyParts bodyPart)
@@ -37,5 +41,8 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
     public void TakeDamage(float amount)
     {
         health -= amount;
+        //Updated health bar
+        GameManager.instance.playerHUD.UpdateBar(HUD_BAR.HEALTHBAR, health, maxHealth);
+
     }
 }
