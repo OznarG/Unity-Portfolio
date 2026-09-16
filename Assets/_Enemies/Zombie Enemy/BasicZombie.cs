@@ -9,21 +9,23 @@ public class BasicZombie : Enemy
     public float distance;
     public float speed;
     public bool animating;
-
+    BehaviorGraphAgent behaviorGraphAgent;
     public BlackboardVariable<bool> blackBoardPaused;
-    
+    public BlackboardVariable<bool> animatingBb;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public  void Start()
+    public void Start()
     {
        agent = GetComponent<NavMeshAgent>();
        animator = GetComponent<Animator>();
-       BehaviorGraphAgent behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
+        behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
         if (behaviorGraphAgent == null )
         {
             Debug.Log("Couldn't get variable");
         }
         behaviorGraphAgent.BlackboardReference.GetVariable("PauseNodes", out blackBoardPaused);
-        
+        behaviorGraphAgent.BlackboardReference.GetVariable("Animating", out animatingBb);
+
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class BasicZombie : Enemy
     public void Die()
     {
         blackBoardPaused.ObjectValue = true;
-        BehaviorGraphAgent behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
+        behaviorGraphAgent = GetComponent<BehaviorGraphAgent>();
         behaviorGraphAgent.BlackboardReference.SetVariableValue("PauseNodes", true);
 
         agent.isStopped = true;
@@ -88,11 +90,17 @@ public class BasicZombie : Enemy
     #region ---ANIMATION EVENT---
     public void Attacking()
     {
+        behaviorGraphAgent.BlackboardReference.SetVariableValue("Animating", true);
+        animator.SetBool("animating", true);
         animating = true;
     }
     public void EndAttacking()
     {
         animating = false;
+        behaviorGraphAgent.BlackboardReference.SetVariableValue("Animating", false);
+        animator.SetBool("animating", false);
+
+
     }
     #endregion
 }
