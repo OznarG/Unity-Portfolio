@@ -46,22 +46,25 @@ public class PlayerHUD : MonoBehaviour
     #region ACTION METHODS
     IEnumerator FlashRoutine(float duration)
     {
-        Debug.Log("EnteredFlash");
-        healthFlash.color = new Color(255, 22, 0, 0);
-
-        float t = 0;
+        
+        Color tempC = healthBar.color;
         if(flashOn == false)
         {
+            Debug.Log("EnteredFlash");
+            float t = 0;
             flashOn = true;
             while (t < duration)
             {
                 t += Time.deltaTime;
-                float a = Mathf.Lerp(1f, 0f, t / duration);
-                healthFlash.color = new Color(255, 22, 0, t*10);
+                Debug.Log(t);
+                float a = +10 * Time.deltaTime;
+                healthFlash.color = new Color(tempC.r, tempC.g, tempC.b, a);
                 yield return null;
             }
+            healthFlash.color = new Color(tempC.r, tempC.g, tempC.b, 0);
+            flashOn = false;
         }
-        flashOn = false;
+        
 
     }
     public void FLashScreen(float duration)
