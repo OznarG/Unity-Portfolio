@@ -19,7 +19,10 @@ public class SlotBackground : MonoBehaviour, IDropHandler
         selected = false;
         child = transform.GetComponentInChildren<Slot>();
     }
+    public void UpdateSelection()
+    {
 
+    }
     public void OnDrop(PointerEventData eventData)
     {
         //Get the slot component of the image that the Cursor is grabbing, then calculate how much free space to stack it has

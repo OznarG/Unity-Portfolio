@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public FPSCharacterStats characterStats;
     public GameObject _playerObj;
     public PlayerHUD playerHUD;
+    public GameObject selectedSlot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
