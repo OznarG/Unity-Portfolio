@@ -11,13 +11,20 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     RectTransform rectTransform;
     Transform parentAfterDrag;
     SlotBackground slotBG;
+    public ItemInstance currentItem;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        //currentItem = new ItemInstance(GameManager.instance)
         GetComponentInChildren<Text>().raycastTarget = false;
         defaultImage = GetComponentInChildren<Image>().sprite;
         slotBG = GetComponentInParent<SlotBackground>();
+    }
+    public void AddItemToSlot(Item itemDef, int amount)
+    {
+        currentItem = new ItemInstance(itemDef, amount);
+        UpdateSlot();
     }
 
     public void UpdateSlot()
