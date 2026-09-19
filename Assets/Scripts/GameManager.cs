@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public FPSCharacterController fPSCharacterController;
     public FPSCharacterStats characterStats;
     public GameObject _playerObj;
+    public Inventory _playernventoryScript;
     public PlayerHUD playerHUD;
     public GameObject selectedSlot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

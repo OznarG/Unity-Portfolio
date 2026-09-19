@@ -6,7 +6,7 @@ public class ItemInstance
     public Item definition;
     public int stackAmount;
 
-    public ItemInstance(Item definition, int ampunt = 1)
+    public ItemInstance(Item definition, int ampunt = 0)
     {
         this.definition = definition;
         this.stackAmount = ampunt;
