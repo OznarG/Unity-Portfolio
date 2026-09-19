@@ -1,16 +1,30 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SlotBackground : MonoBehaviour
+public enum SLOT_TYPE
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+}
+public class SlotBackground : MonoBehaviour, IDropHandler
+{
+    [SerializeField] private Slot child;
+    public SLOT_TYPE slotTypeTaker;
+    public int slotID;
+    public bool selected;
+    [SerializeField] bool specialSlot;
+    [SerializeField] Color slotColor;
+
+    private void Awake()
     {
-        
+        selected = false;
+        child = transform.GetComponentInChildren<Slot>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDrop(PointerEventData eventData)
     {
-        
+        //Get the slot component of the image that the Cursor is grabbing, then calculate how much free space to stack it has
+        Slot sourceSlot = eventData.pointerDrag.GetComponent<Slot>();
+
+        throw new System.NotImplementedException();
     }
 }

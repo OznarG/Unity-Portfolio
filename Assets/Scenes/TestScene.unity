@@ -13156,6 +13156,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &997805527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997805528}
+  - component: {fileID: 997805530}
+  - component: {fileID: 997805529}
+  m_Layer: 5
+  m_Name: PlayerInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &997805528
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997805527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1750617200531065216}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &997805529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997805527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.99215686}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &997805530
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997805527}
+  m_CullTransparentMesh: 1
 --- !u!1 &999547604
 GameObject:
   m_ObjectHideFlags: 0
@@ -29601,6 +29676,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4762478745896563525, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5140609527179325697, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
       propertyPath: m_Pivot.y
       value: 1
@@ -29689,6 +29768,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7495858278906114235, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8399368854439753387, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
       propertyPath: m_SizeDelta.y
       value: 41.3
@@ -29719,8 +29802,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3273966198158160715, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2104814967}
+    - targetCorrespondingSourceObject: {fileID: 5169252866301709990, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 997805528}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
+--- !u!224 &1750617200531065216 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5169252866301709990, guid: adf23b430375a994082ef4c4e4db9683, type: 3}
+  m_PrefabInstance: {fileID: 1750617200531065215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &3363703155753198054 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8007305703215131982, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
