@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         input = GameManager.instance._playerObj.GetComponent<PlayerInput>();
+        inventoryMenu.SetActive(true); 
+        inventoryMenu.SetActive(false);
     }
     //Functions to set the menus on or off
     public void TogglePause()
