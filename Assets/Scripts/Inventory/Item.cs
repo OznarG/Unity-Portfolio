@@ -15,4 +15,6 @@ public abstract class Item : ScriptableObject
     public GameObject iemPrefabs;
     public SLOT_TYPE slotType;
     public int slotIndex;
+
+    public abstract void Use();
 }
