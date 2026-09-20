@@ -12,7 +12,7 @@ public abstract class Item : ScriptableObject
     public int stackMax;
     public bool usable;
     public Sprite icon;
-    public GameObject iemPrefabs;
+    public GameObject itemPrefabs;
     public SLOT_TYPE slotType;
     public int slotIndex;
 

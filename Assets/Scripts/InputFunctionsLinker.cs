@@ -15,6 +15,5 @@ public class InputFunctionsLinker : MonoBehaviour
     { 
         if (!ctx.performed) return;
         MenuManager.instance.OpenHealthStats();
-    
     }
 }

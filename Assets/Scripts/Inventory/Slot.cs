@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,9 +16,13 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     private void Awake()
     {
+
+    }
+    private void Start()
+    {
         rectTransform = GetComponent<RectTransform>();
-        //currentItem = new ItemInstance(GameManager.instance)
-        GetComponentInChildren<Text>().raycastTarget = false;
+        currentItem = new ItemInstance(GameManager.instance._playernventoryScript.defaultEmptyItem);
+        GetComponentInChildren<TMP_Text>().raycastTarget = false;
         defaultImage = GetComponentInChildren<Image>().sprite;
         slotBG = GetComponentInParent<SlotBackground>();
     }
@@ -32,7 +37,7 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         if(currentItem.stackAmount <= 0)
         {
             GetComponent<Image>().sprite = defaultImage;
-            GetComponentInChildren<Text>().text = " ";
+            GetComponentInChildren<TMP_Text>().text = " ";
             //currentItem = new ItemInstance(GameManager.instance.playerInventory.defaultEmptyItem, 0);
         }
         else
@@ -40,7 +45,7 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
             GetComponent<Image>().sprite = currentItem.definition.icon;
             if(currentItem.stackAmount >= 1)
             {
-                GetComponentInChildren<Text>().text = currentItem.stackAmount.ToString();
+                GetComponentInChildren<TMP_Text>().text = currentItem.stackAmount.ToString();
             }
         }
         UpdateParentBackground(); //Don't need it in this game
@@ -85,22 +90,31 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     #region Drag Methods
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        // THIS IS CALLED ON THE ACTUAL BUTTON of the slot
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.root);
+        transform.GetComponent<Image>().raycastTarget = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        isDragging = false;
+        transform.SetParent(parentAfterDrag);
+        transform.GetComponent<Image>().raycastTarget = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if(currentItem.stackAmount <1)
+        {
+            return;
+        }
+        isDragging = true;
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     #endregion
