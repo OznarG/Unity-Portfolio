@@ -16,4 +16,9 @@ public class InputFunctionsLinker : MonoBehaviour
         if (!ctx.performed) return;
         MenuManager.instance.OpenHealthStats();
     }
+    public void OnToggleInventory(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        MenuManager.instance.ToggleInventory();
+    }
 }

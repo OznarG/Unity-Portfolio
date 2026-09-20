@@ -12,7 +12,7 @@ public class itemCollisionPickup : MonoBehaviour
         if(other.CompareTag("Player") && playerIn == false)
         {
             playerIn = true;
-            if (GameManager.instance._playernventoryScript.AddItem(item, instance, 1)) ;
+            if (GameManager.instance._playernventoryScript.AddItem(item, instance, 1)) 
             {
                 Destroy(gameObject); 
             }

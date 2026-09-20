@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     public GameObject selectedMenu;
     public GameObject pauseMenu;
     public GameObject healthStatsMenu;
+    public GameObject inventoryMenu;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -55,6 +57,27 @@ public class MenuManager : MonoBehaviour
         else
         {
             selectedMenu = healthStatsMenu;
+            selectedMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            isPaused = true;
+        }
+    }
+    public void ToggleInventory()
+    {
+        if (isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+            selectedMenu.SetActive(false);
+            selectedMenu = null;
+            isPaused = false;
+        }
+        else
+        {
+            selectedMenu = inventoryMenu;
             selectedMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
