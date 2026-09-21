@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //ENUMS to make everything easier to read in the code
@@ -24,9 +26,14 @@ public class HealthManager : MonoBehaviour
     public static HealthManager instance;
     [SerializeField] WoundsMarks[] marks;
     public WoundMarkLinker[] woundMarkButtons;
+    public List<Wound> woundsActive = new();
+    public List<Wound> woundsToRemove = new();
     public Wound selectedWound;
     public Image selectionhighlight;
-    public Button healButton;
+    public Button bandageButton;
+    public Button removeBandageButton;
+    public Button cleanWoundButton;
+    public Button stichWoundButton;
     
     void Start()
     {
@@ -34,7 +41,23 @@ public class HealthManager : MonoBehaviour
         //Sellected wound is set to null
         instance = this;
         selectedWound = null;
-        healButton.onClick.AddListener(BandageWound);
+        bandageButton.onClick.AddListener(BandageWound);
+        removeBandageButton.onClick.AddListener(RemoveBandage);
+        cleanWoundButton.onClick.AddListener(CleanWound);
+        stichWoundButton.onClick.AddListener(StitchWound);
+    }
+    private void Update()
+    {
+        foreach(Wound wound in woundsActive)
+        {
+            wound.CallEffect();
+        }
+        foreach (Wound wound in woundsToRemove)
+        {
+            Destroy(wound,1);
+            woundsActive.Remove(wound);
+            
+        }
     }
     public void ChooseEffect(WoundTypes type, BodyParts bodyPart)
     {
@@ -116,5 +139,17 @@ public class HealthManager : MonoBehaviour
     {
         //Grabs Wound and put bandage on it
         selectedWound.UseBandage();
+    }
+    public void RemoveBandage()
+    {
+        selectedWound.RemoveBandage();
+    }
+    public void CleanWound()
+    {
+        selectedWound.CleanWound();
+    }
+    public void StitchWound()
+    {
+        selectedWound.StitchWound();
     }
 }

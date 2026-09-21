@@ -25,7 +25,6 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         defaultImage = GetComponentInChildren<Image>().sprite;
         slotBG = GetComponentInParent<SlotBackground>();
         imageItem = GetComponentInChildren<Image>();
-
     }
     private void Start()
     {

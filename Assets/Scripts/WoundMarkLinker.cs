@@ -23,9 +23,9 @@ public class WoundMarkLinker : MonoBehaviour
         }
         //calls select wound on this wound, wish just added it to the Health Manager
         //Then turn on the selection image
-        wound.SelectWound();    
+        wound.SelectWound(selectionhighlight.gameObject);    
         HealthManager.instance.selectionhighlight = selectionhighlight;
-        selectionhighlight.gameObject.SetActive(true);
+        
     }
 
 }

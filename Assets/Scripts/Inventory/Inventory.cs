@@ -96,8 +96,11 @@ public class Inventory : MonoBehaviour
             if (name == item)
             {
                 invSlot.currentItem.DecreaseAmount(1);
+                itemsOnHand[item] -= 1;
+                Debug.Log(itemsOnHand[item]);
                 invSlot.UpdateSlot();
             }
+
         }
     }
     public void UpdateItemsOnHand(Item itemStats, int amount)

@@ -43,7 +43,7 @@ public class FPSCharacterStats : MonoBehaviour, IDamage
         health -= amount;
         //Updated health bar
         GameManager.instance.playerHUD.UpdateBar(HUD_BAR.HEALTHBAR, health, maxHealth);
-        GameManager.instance.playerHUD.FLashScreen(5);
+       // GameManager.instance.playerHUD.FLashScreen(5);
 
     }
 }

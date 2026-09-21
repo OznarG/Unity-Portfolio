@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [Header("--- Components/references ---")]
+    public static Item[] itemlist;
     public Camera mainCamera;
     public WeaponController weaponController;
     public FPSCharacterController fPSCharacterController;
