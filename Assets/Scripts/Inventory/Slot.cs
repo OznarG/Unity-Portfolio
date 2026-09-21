@@ -5,26 +5,31 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] bool selected;
     [SerializeField] Canvas canvas;
     [SerializeField] Sprite defaultImage;
-    bool isDragging;
     RectTransform rectTransform;
     Transform parentAfterDrag;
     SlotBackground slotBG;
+    [SerializeField] Color itemColor;
+    [SerializeField] Image imageItem;
     public ItemInstance currentItem;
+    bool selected;
+    bool isDragging;
 
     private void Awake()
     {
-
-    }
-    private void Start()
-    {
+        //Get the components and initiate ItemInstance and set Raycast off
         rectTransform = GetComponent<RectTransform>();
         currentItem = new ItemInstance(GameManager.instance._playernventoryScript.defaultEmptyItem);
         GetComponentInChildren<TMP_Text>().raycastTarget = false;
         defaultImage = GetComponentInChildren<Image>().sprite;
         slotBG = GetComponentInParent<SlotBackground>();
+        imageItem = GetComponentInChildren<Image>();
+
+    }
+    private void Start()
+    {
+        UpdateSlot();
     }
     public void AddItemToSlot(Item itemDef, int amount)
     {
@@ -34,21 +39,26 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void UpdateSlot()
     {
+        //check if the stack is empty
         if(currentItem.stackAmount <= 0)
         {
+            //Set the Image to the empty spot and set children to 0
             GetComponent<Image>().sprite = defaultImage;
             GetComponentInChildren<TMP_Text>().text = " ";
-            //currentItem = new ItemInstance(GameManager.instance.playerInventory.defaultEmptyItem, 0);
+            currentItem = new ItemInstance(GameManager.instance._playernventoryScript.defaultEmptyItem, 0);
+            GetComponent<Image>().color = Color.black;
         }
         else
         {
+            //if is not empty then just set image to the current icon
+            //And then change the items number text to amount
             GetComponent<Image>().sprite = currentItem.definition.icon;
             if(currentItem.stackAmount >= 1)
             {
                 GetComponentInChildren<TMP_Text>().text = currentItem.stackAmount.ToString();
+                GetComponent<Image>().color = itemColor;
             }
         }
-        UpdateParentBackground(); //Don't need it in this game
     }
     private void UpdateParentBackground() 
     {
