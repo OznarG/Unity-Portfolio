@@ -79,8 +79,11 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
             else
             {
                 //if is not selected set selected to false and update to change its color and avoid errors
-                GameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = false;
-                GameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+                if(GameManager.instance.selectedSlot != null)
+                {
+                    GameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected = false;
+                    GameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().UpdateSelection();
+                }
                 //now set the selectedSlot to this one
                 GameManager.instance.selectedSlot = transform.gameObject;
                 //update it to selected and change color 
@@ -101,6 +104,7 @@ public class Slot : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     public void OnPointerDown(PointerEventData eventData)
     {
         // THIS IS CALLED ON THE ACTUAL BUTTON of the slot
+        //SelectThis();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

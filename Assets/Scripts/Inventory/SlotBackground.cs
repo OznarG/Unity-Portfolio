@@ -10,10 +10,10 @@ public class SlotBackground : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Slot child;
     public SLOT_TYPE slotTypeTaker;
+    [SerializeField] bool specialSlot;
+    [SerializeField] Color slotSelectedColor;
     public int slotID;
     public bool selected;
-    [SerializeField] bool specialSlot;
-    [SerializeField] Color slotColor;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class SlotBackground : MonoBehaviour, IDropHandler
     private void SwitchItemsLocation(Slot sourceSlot, Slot sourceTwo)
     {
         ItemInstance tempitem = new ItemInstance(sourceTwo.currentItem.definition, sourceTwo.currentItem.stackAmount);
-
+        
         sourceTwo.currentItem = sourceSlot.currentItem;
         sourceSlot.currentItem = tempitem;
         sourceTwo.UpdateSlot();
@@ -33,11 +33,12 @@ public class SlotBackground : MonoBehaviour, IDropHandler
     {
         if (GameManager.instance.selectedSlot.GetComponentInParent<SlotBackground>().selected)
         {
-            transform.GetComponent<Image>().color = Color.red;
+            
+            transform.GetComponent<Image>().color = slotSelectedColor;
         }
         else
         {
-            transform.GetComponent<Image>().color = slotColor;
+            transform.GetComponent<Image>().color = Color.black;
         }
     }
     public void OnDrop(PointerEventData eventData)
