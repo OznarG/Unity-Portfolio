@@ -113,22 +113,27 @@ public class HealthManager : MonoBehaviour
         {
             case WoundTypes.BITE:
                 wound.duration = 40;
+                wound.bleedingDuration = 40;
                 wound.woundsMark.bite.gameObject.SetActive(true);
                 break;
             case WoundTypes.DEEP_lACERATION:
                 wound.duration = 50;
+                wound.bleedingDuration = 50;
                 wound.woundsMark.laseration.gameObject.SetActive(true);
                 break;
             case WoundTypes.LACERATION:
                 wound.duration = 30;
+                wound.bleedingDuration = 30;
                 wound.woundsMark.laseration.gameObject.SetActive(true);
                 break;
             case WoundTypes.DEEP_SCRATCH:
                 wound.duration = 20;
+                wound.bleedingDuration = 20;
                 wound.woundsMark.scratch.gameObject.SetActive(true);
                 break;
             case WoundTypes.SCRATCH:
                 wound.duration = 10;
+                wound.bleedingDuration = 10;
                 wound.woundsMark.scratch.gameObject.SetActive(true);
                 break;
             default:
