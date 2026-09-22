@@ -20,10 +20,13 @@ public class Wound : MonoBehaviour
 
     void Start()
     {      
+        //Add the script to the lis as soon as is created
         HealthManager.instance.woundsActive.Add(this);
     }
     public void CallEffect()
     {
+        //if the duration is not over go in
+        //if is not bandaged or bleeding still on. apply damage then reduce bleding and duration time
         if(duration > 0)
         {
             if(!bandaged && bleedingDuration > 0)
@@ -33,6 +36,7 @@ public class Wound : MonoBehaviour
             bleedingDuration -= Time.deltaTime;
             duration -= Time.deltaTime;
         }
+        //if duration is over, heal the wound
         else
         {
             HealWound();
@@ -40,7 +44,7 @@ public class Wound : MonoBehaviour
     }
     public void HealWound()
     {
-        
+        //Check the active wound and set it off
         switch (woundType)
         {
             case WoundTypes.BITE:
@@ -59,10 +63,9 @@ public class Wound : MonoBehaviour
                 woundsMark.scratch.gameObject.SetActive(false);
                 break;
             default:
-                break;
-
-                
+                break;               
         }
+        //Set healed to true and if is not bandage place it on the deletion list
         healled = true;
         if(bandaged != true)
         {
@@ -74,16 +77,16 @@ public class Wound : MonoBehaviour
     {
         //if the bandage is used the bleeding stop and the bandage on the wounds mark is set to on
         woundsMark.bandage.gameObject.SetActive(true);
+        //if is not bandaged then put bandage on and remove a bandage from inventory
         if(bandaged != true)
         {
             bandaged = true;
             GameManager.instance._playernventoryScript.RemoveItem("Bandage");
         }
-        
-
     }
     public void RemoveBandage()
     {
+        //remove bandage by turningi t off and if is healed then remove the wound from list
         woundsMark.bandage.gameObject.SetActive(false);
         bandaged = false;
         if(healled == true)
@@ -95,10 +98,10 @@ public class Wound : MonoBehaviour
     {
         
         //Select this duh
+        //if is equals then go in and make it null and unselect it
+        //because if this function was called when it was selected so unselect
         if(HealthManager.instance.selectedWound == this)
         {
-            Debug.Log("Selected Inside");
-
             HealthManager.instance.selectedWound = null;
             HealthManager.instance.bandageButton.gameObject.SetActive(false);
             HealthManager.instance.removeBandageButton.gameObject.SetActive(false);
@@ -106,12 +109,10 @@ public class Wound : MonoBehaviour
         }
         else
         {
-            Debug.Log("Selected not Inside");
-
+            //if is not eual, set it to this 
+            //if it has bandage then put bandage button on, same with remove bandage
             HealthManager.instance.selectedWound = this;
-
             HealthManager.instance.bandageButton.gameObject.SetActive(Contains("Bandage"));
-            Debug.Log(GameManager.instance._playernventoryScript.itemsOnHand.ContainsKey("Bandage"));
             HealthManager.instance.removeBandageButton.gameObject.SetActive(true);
             highlight.SetActive(true);
             
@@ -120,6 +121,7 @@ public class Wound : MonoBehaviour
     }
     public bool Contains(string name)
     {
+        //check if the inventory has this items on it and how many
         if(GameManager.instance._playernventoryScript.itemsOnHand.ContainsKey(name))
         {
             if(GameManager.instance._playernventoryScript.itemsOnHand[name] > 0)
