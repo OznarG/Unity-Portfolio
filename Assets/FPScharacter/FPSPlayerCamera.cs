@@ -1,16 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngineInternal;
 
 public class FPSPlayerCamera : MonoBehaviour
 {
     //Components and references
     public Transform camTransform;
+    public GameObject objectLookingAt;
+    public GameObject objectLookingAtStored;
+
 
     //variables to adjust camera movement
     public float mouseSensitivity;
     private float xRotation = 0f;
     [SerializeField] float maxUplook;
     [SerializeField] float maxDownlook;
+    [SerializeField] float rangeInterator;
     private Vector2 lookInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +30,7 @@ public class FPSPlayerCamera : MonoBehaviour
     void LateUpdate()
     {
         MouseLook();
+        lookingAt();
     }
 
     public void OnLook(InputAction.CallbackContext ctx)
@@ -50,5 +56,42 @@ public class FPSPlayerCamera : MonoBehaviour
     public void ShakeCamera()
     {
 
+    }
+    public void lookingAt()
+    {
+        RaycastHit hit;
+        //Create a ray at the cam position, looking forward, and store the info in hit, with the range of weapon range
+        if (Physics.Raycast(transform.position, transform.forward, out hit, rangeInterator))
+        {
+            //Thistakes the tags of the object in hit and display it in the debug console
+            Debug.Log(hit.collider.tag.ToString());
+            //Get interface IDamage from the object in hit
+            Iinteractor interactor = hit.collider.GetComponent<Iinteractor>();
+            //If it hits something that can take damage, deal damage and create the bullet hit vfx
+            if (interactor != null)
+            {
+                // damageable.TakeDamage(weaponDamage);
+                //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));            
+                objectLookingAt = hit.collider.gameObject;
+                objectLookingAtStored = objectLookingAt;
+                interactor.ReadyToInteract();               
+            }
+            else
+            {
+                if(objectLookingAt != null)
+                {
+                    objectLookingAt.GetComponent<Iinteractor>().StopInteraction();
+                }
+                //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
+            }
+        }
+        else
+        {
+            if (objectLookingAtStored != null)
+            {
+                objectLookingAtStored.GetComponent<Iinteractor>().StopInteraction();
+            }
+            //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
+        }
     }
 }
