@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public enum HUD_BAR
@@ -19,6 +20,11 @@ public class PlayerHUD : MonoBehaviour
     [Header("--- Flashers ---")]
     public Image healthFlash;
     public bool flashOn;
+    [Header("--- Interactor Area ---")]
+    public GameObject interactorBG;
+    public Image[] interactIm = new Image[4]; 
+    public TMP_Text[] interactInfo = new TMP_Text[4];
+
 
     #region UPDATE METHODS
     //Chooses what bar to update and calculate based on inputs 

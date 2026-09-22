@@ -51,12 +51,12 @@ MonoBehaviour:
   - {fileID: -2933772375693410658}
   type: 1
   hardness: 1
-  sharedColor: {r: 0, g: 1, b: 0.9052942, a: 1}
+  sharedColor: {r: 1, g: 1, b: 1, a: 1}
   intensity: 1.2
-  gap: 0
+  gap: 0.893
   blendMode: 3
   dilationMethod: 3
-  kernelSize: 5
+  kernelSize: 9
   blurSpread: 1.35
   blurPasses: 4
   scaleWithResolution: 1
