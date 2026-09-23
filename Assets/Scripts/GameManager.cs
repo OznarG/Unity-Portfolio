@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public FPSCharacterStats characterStats;
     public GameObject _playerObj;
     public Inventory _playernventoryScript;
+    public Inventory _countainerInventory;
     public PlayerHUD playerHUD;
     public GameObject selectedSlot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
