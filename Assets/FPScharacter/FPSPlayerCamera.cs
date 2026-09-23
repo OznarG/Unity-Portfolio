@@ -92,6 +92,7 @@ public class FPSPlayerCamera : MonoBehaviour
             if (objectLookingAtStored != null)
             {
                 objectLookingAtStored.GetComponent<Iinteractor>().StopInteraction();
+                
             }
             //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
         }
