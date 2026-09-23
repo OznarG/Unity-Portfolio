@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5828f083cbab8b24494f0c57b9c789e8, type: 3}
-  m_Name: Item_MetalPipe
+  m_Script: {fileID: 11500000, guid: 27fdfd9e0e9d54041b1cf15dfe1993bf, type: 3}
+  m_Name: Item_Vegetables
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 10
   type: 0
-  itemName: Metal Pipe
-  itemDescription: Metal Materials
-  stackMax: 4
+  itemName: Vegetables
+  itemDescription: Fresh Vegetables
+  stackMax: 3
   usable: 0
-  icon: {fileID: 21300000, guid: 8c69685feb237a448aa0033f6b17967a, type: 3}
+  icon: {fileID: 21300000, guid: 266eab22c353c714388c163b77658e30, type: 3}
   itemPrefabs: {fileID: 0}
   slotType: 0
   slotIndex: 0

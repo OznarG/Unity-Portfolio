@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5828f083cbab8b24494f0c57b9c789e8, type: 3}
-  m_Name: Item_MetalPipe
+  m_Script: {fileID: 11500000, guid: e55e7f559fdc8354e842e5688724396e, type: 3}
+  m_Name: Item_MeleePipe
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 13
   type: 0
-  itemName: Metal Pipe
-  itemDescription: Metal Materials
-  stackMax: 4
+  itemName: Metal Pippe
+  itemDescription: 'Melee Metal Pippe '
+  stackMax: 1
   usable: 0
-  icon: {fileID: 21300000, guid: 8c69685feb237a448aa0033f6b17967a, type: 3}
+  icon: {fileID: 21300000, guid: 157225c3160478844aff99cd89285546, type: 3}
   itemPrefabs: {fileID: 0}
   slotType: 0
   slotIndex: 0

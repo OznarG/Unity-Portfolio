@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5828f083cbab8b24494f0c57b9c789e8, type: 3}
-  m_Name: Item_MetalPipe
+  m_Name: Item_MetalSheets
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 11
   type: 0
-  itemName: Metal Pipe
-  itemDescription: Metal Materials
-  stackMax: 4
+  itemName: Metal Sheet
+  itemDescription: Metal Sheets Materials
+  stackMax: 5
   usable: 0
-  icon: {fileID: 21300000, guid: 8c69685feb237a448aa0033f6b17967a, type: 3}
+  icon: {fileID: 21300000, guid: 05c587300be8c624dae7594152cd7f19, type: 3}
   itemPrefabs: {fileID: 0}
   slotType: 0
   slotIndex: 0
