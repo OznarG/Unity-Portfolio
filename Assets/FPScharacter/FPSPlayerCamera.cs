@@ -8,6 +8,7 @@ public class FPSPlayerCamera : MonoBehaviour
     public Transform camTransform;
     public GameObject objectLookingAt;
     public GameObject objectLookingAtStored;
+    public Camera cam;
 
 
     //variables to adjust camera movement
@@ -24,6 +25,7 @@ public class FPSPlayerCamera : MonoBehaviour
         //Locks curson on Place and Turn off visibility
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        cam = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -61,7 +63,7 @@ public class FPSPlayerCamera : MonoBehaviour
     {
         RaycastHit hit;
         //Create a ray at the cam position, looking forward, and store the info in hit, with the range of weapon range
-        if (Physics.Raycast(transform.position, transform.forward, out hit, rangeInterator))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rangeInterator))
         {
             //Thistakes the tags of the object in hit and display it in the debug console
             Debug.Log(hit.collider.tag.ToString());

@@ -12,6 +12,7 @@ public class ItemPickup : MonoBehaviour, Iinteractor
 
     void Start()
     {
+        meshRenderer = GetComponent<MeshRenderer>();
         originalLayer = meshRenderer.renderingLayerMask;
     }
     public void Interact()
