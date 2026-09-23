@@ -37,6 +37,5 @@ public class ItemPickup : MonoBehaviour, Iinteractor
         meshRenderer.renderingLayerMask = originalLayer;
         GameManager.instance.playerHUD.interactIm[0].gameObject.SetActive(false);
         GameManager.instance.playerHUD.interactIm[1].gameObject.SetActive(false);
-
     }
 }

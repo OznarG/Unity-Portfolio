@@ -8,7 +8,7 @@ public struct ItemSpawnerConditions
     public int min;
     public Item item;
     public float chance;
-    public float amount;
+    public int amount;
 }
 public class ItemSpawner : MonoBehaviour, Iinteractor
 {
@@ -17,10 +17,9 @@ public class ItemSpawner : MonoBehaviour, Iinteractor
     [SerializeField] private MeshRenderer meshRenderer;
     ItemInstance instance;
 
-    [SerializeField] int minSpawn;
-    [SerializeField] int maxSpawn;
     [SerializeField] int amountSpawn;
     [SerializeField] string _name;
+    [SerializeField] bool hasOpen;
 
     [SerializeField] ItemSpawnerConditions[] ItemSpawnerConditions;
 
@@ -70,6 +69,17 @@ public class ItemSpawner : MonoBehaviour, Iinteractor
         }
         else
         {
+            if(!hasOpen)
+            {
+                hasOpen = true;
+                for (int i = 0; i < ItemSpawnerConditions.Length; ++i)
+                {
+                    Item _item = ItemSpawnerConditions[i].item;
+                    int addAmount = ItemSpawnerConditions[i].amount;
+                    GameManager.instance._countainerInventory.AddItem(_item, instance, addAmount);
+                }
+
+            }
             MenuManager.instance.selectedMenu = MenuManager.instance.inventoryMenu;
             MenuManager.instance.selectedMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
