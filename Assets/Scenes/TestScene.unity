@@ -48806,7 +48806,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653632117406}
-  - component: {fileID: 919132149087625253}
   m_Layer: 0
   m_Name: ToolboxBlue
   m_TagString: Untagged
@@ -48814,20 +48813,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &919132149087625253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149087625252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4fbd6e3627903d4ca4ba5e5bd67fb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpawn: 0
-  maxSpawn: 10
 --- !u!33 &1086715657157251856
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -51092,6 +51077,8 @@ GameObject:
   - component: {fileID: 3482081073746693625}
   - component: {fileID: 1834119332301948893}
   - component: {fileID: 2250435635570071855}
+  - component: {fileID: 7918645151079210280}
+  - component: {fileID: 7918645151079210279}
   m_Layer: 0
   m_Name: ToolBoxBottom.001
   m_TagString: Untagged
@@ -51099,6 +51086,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7918645151079210279
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918645151079210278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7431311890593895036, guid: 9d383aa37b39fe249b548c32408b9d02, type: 3}
+--- !u!114 &7918645151079210280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918645151079210278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fbd6e3627903d4ca4ba5e5bd67fb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineLayer:
+    serializedVersion: 0
+    m_Bits: 256
+  originalLayer:
+    serializedVersion: 0
+    m_Bits: 0
+  meshRenderer: {fileID: 0}
+  minSpawn: 0
+  maxSpawn: 5
+  amountSpawn: 0
+  _name: ToolBox
+  ItemSpawnerConditions:
+  - max: 0
+    min: 10
+    item: {fileID: 0}
+    chance: 10
+    amount: 0
+  - max: 1
+    min: 15
+    item: {fileID: 0}
+    chance: 30
+    amount: 0
+  - max: 0
+    min: 20
+    item: {fileID: 0}
+    chance: 70
+    amount: 0
 --- !u!4 &7933014391177370973
 Transform:
   m_ObjectHideFlags: 0

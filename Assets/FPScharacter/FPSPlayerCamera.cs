@@ -66,7 +66,6 @@ public class FPSPlayerCamera : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rangeInterator))
         {
             //Thistakes the tags of the object in hit and display it in the debug console
-            Debug.Log(hit.collider.tag.ToString());
             //Get interface IDamage from the object in hit
             Iinteractor interactor = hit.collider.GetComponent<Iinteractor>();
             //If it hits something that can take damage, deal damage and create the bullet hit vfx
@@ -83,6 +82,7 @@ public class FPSPlayerCamera : MonoBehaviour
                 if(objectLookingAt != null)
                 {
                     objectLookingAt.GetComponent<Iinteractor>().StopInteraction();
+                    objectLookingAt = null;
                 }
                 //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
             }
