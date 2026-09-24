@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     public Item defaultEmptyItem;
 
     [Header("--- Drag Stats ---")]
-    int slotAmount;
+    public int slotAmount;
     int slotNumber;
     public bool isOpen;
 
@@ -114,5 +114,21 @@ public class Inventory : MonoBehaviour
         {
             itemsOnHand.Add(itemStats.itemName, amount);
         }
+    }
+    public bool SlotEmpty(int index)
+    {
+        Slot slot = slots[index].gameObject.GetComponent<Slot>();
+        return slot.currentItem.definition.ID == 0 ? true : false; 
+    }
+    public ItemInstance GetInstance(int index)
+    {
+        Slot slot = slots[index].gameObject.GetComponent<Slot>();
+        return slot.currentItem;
+    }
+    public void EmptySlot(int index)
+    {
+        Slot slot = slots[index].gameObject.GetComponent<Slot>();
+        slot.currentItem.stackAmount = 0;
+        slot.UpdateSlot();
     }
 }

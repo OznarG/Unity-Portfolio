@@ -71,8 +71,10 @@ public class FPSPlayerCamera : MonoBehaviour
             //If it hits something that can take damage, deal damage and create the bullet hit vfx
             if (interactor != null)
             {
-                // damageable.TakeDamage(weaponDamage);
-                //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));            
+                if(objectLookingAt != objectLookingAtStored)
+                {
+                    objectLookingAtStored.GetComponent<Iinteractor>().StopInteraction();
+                }
                 objectLookingAt = hit.collider.gameObject;
                 objectLookingAtStored = objectLookingAt;
                 interactor.ReadyToInteract();               
@@ -84,7 +86,6 @@ public class FPSPlayerCamera : MonoBehaviour
                     objectLookingAt.GetComponent<Iinteractor>().StopInteraction();
                     objectLookingAt = null;
                 }
-                //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
         else
@@ -92,9 +93,7 @@ public class FPSPlayerCamera : MonoBehaviour
             if (objectLookingAtStored != null)
             {
                 objectLookingAtStored.GetComponent<Iinteractor>().StopInteraction();
-                
             }
-            //Instantiate(GameManager.instance.weaponController.bulletHole[0], hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
     public void OnInteract(InputAction.CallbackContext ctx)

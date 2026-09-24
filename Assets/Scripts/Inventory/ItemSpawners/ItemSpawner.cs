@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -8,6 +10,12 @@ public struct ItemSpawnerConditions
     public int min;
     public Item item;
     public float chance;
+    public int amount;
+}
+[System.Serializable]
+public struct StoreItem
+{
+    public Item item;
     public int amount;
 }
 public class ItemSpawner : MonoBehaviour, Iinteractor
@@ -21,6 +29,7 @@ public class ItemSpawner : MonoBehaviour, Iinteractor
     [SerializeField] string _name;
     [SerializeField] bool hasOpen;
 
+    [SerializeField] List<StoreItem> items = new();
     [SerializeField] ItemSpawnerConditions[] ItemSpawnerConditions;
 
     private void Start()
@@ -38,6 +47,10 @@ public class ItemSpawner : MonoBehaviour, Iinteractor
         if(successNum <= ItemSpawnerConditions[currentItem].chance)
         {
             ItemSpawnerConditions[currentItem].amount =  Random.Range(ItemSpawnerConditions[currentItem].min, ItemSpawnerConditions[currentItem].max);
+            StoreItem item;
+            item.item = ItemSpawnerConditions[currentItem].item;
+            item.amount = ItemSpawnerConditions[currentItem].amount;
+            items.Add(item);
             Debug.Log(ItemSpawnerConditions[currentItem].amount);
 
         }
@@ -46,9 +59,25 @@ public class ItemSpawner : MonoBehaviour, Iinteractor
             ItemSpawnerConditions[currentItem].amount = 0;
         }
     }
-
+    public void CloseInteract()
+    {
+        int lenght = GameManager.instance._countainerInventory.slotAmount;
+        for (int i = 0;i < lenght; ++i)
+        {
+            if(!GameManager.instance._countainerInventory.SlotEmpty(i))
+            {
+                ItemInstance ins = GameManager.instance._countainerInventory.GetInstance(i);
+                StoreItem item;
+                item.item = ins.definition;
+                item.amount = ins.stackAmount;
+                items.Add(item);
+                GameManager.instance._countainerInventory.EmptySlot(i);
+            }
+        }
+    }
     public void ReadyToInteract()
     {
+        //GameManager.instance.cameraScript.objectLookingAtStored.GetComponent<Iinteractor>().StopInteraction();
         meshRenderer.renderingLayerMask = outlineLayer;
         GameManager.instance.playerHUD.interactIm[0].gameObject.SetActive(true);
         GameManager.instance.playerHUD.interactIm[1].gameObject.SetActive(true);
@@ -63,23 +92,18 @@ public class ItemSpawner : MonoBehaviour, Iinteractor
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1;
+            CloseInteract();
             MenuManager.instance.selectedMenu.SetActive(false);
             MenuManager.instance.selectedMenu = null;
             MenuManager.instance.isPaused = false;
         }
         else
         {
-            if(!hasOpen)
+            foreach(StoreItem item in items)
             {
-                hasOpen = true;
-                for (int i = 0; i < ItemSpawnerConditions.Length; ++i)
-                {
-                    Item _item = ItemSpawnerConditions[i].item;
-                    int addAmount = ItemSpawnerConditions[i].amount;
-                    GameManager.instance._countainerInventory.AddItem(_item, instance, addAmount);
-                }
-
+                GameManager.instance._countainerInventory.AddItem(item.item, instance, item.amount);
             }
+            items.Clear();
             MenuManager.instance.selectedMenu = MenuManager.instance.inventoryMenu;
             MenuManager.instance.selectedMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;

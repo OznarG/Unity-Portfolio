@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public WeaponController weaponController;
     public FPSCharacterController fPSCharacterController;
     public FPSCharacterStats characterStats;
+    public FPSPlayerCamera cameraScript;
     public GameObject _playerObj;
     public Inventory _playernventoryScript;
     public Inventory _countainerInventory;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        cameraScript = mainCamera.GetComponent<FPSPlayerCamera>();
     }
     // Update is called once per frame
     void Update()
