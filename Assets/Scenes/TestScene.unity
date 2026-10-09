@@ -39104,7 +39104,7 @@ PrefabInstance:
       objectReference: {fileID: 345077625}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8504446
+      value: -13.3
       objectReference: {fileID: 0}
     - target: {fileID: 8157273725534140815, guid: 3510e5d59538b8e43a091dc620d3c509, type: 3}
       propertyPath: m_LocalPosition.y
@@ -42221,7 +42221,7 @@ Transform:
   m_GameObject: {fileID: 8697036380029026484}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 6.80803, y: 0.040001392, z: -8.749885}
+  m_LocalPosition: {x: 18.35, y: 0.040001392, z: -8.749885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -50827,6 +50827,8 @@ MonoBehaviour:
   m_Graph: {fileID: -830278307084877103, guid: 1a1762c786594b24a8462485c68ed1fa, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 4433876416821461279
+  - rid: 4433876416821461392
+  - rid: 4433876416821461422
   m_OriginalGraph: {fileID: -830278307084877103, guid: 1a1762c786594b24a8462485c68ed1fa, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -50841,6 +50843,26 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 8697036380029026484}
+    - rid: 4433876416821461392
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15936776275038344284
+          m_Value1: 16099807642389309708
+        Name: WayPoints
+        m_Value:
+        - {fileID: 113625426}
+        - {fileID: 469552883}
+        - {fileID: 1378680943}
+        - {fileID: 605907303}
+    - rid: 4433876416821461422
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8181938860440601262
+          m_Value1: 9132874271875804456
+        Name: Target
+        m_Value: {fileID: 268819032}
 --- !u!195 &8783211539962808172
 NavMeshAgent:
   m_ObjectHideFlags: 0
